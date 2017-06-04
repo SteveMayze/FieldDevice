@@ -1,0 +1,410 @@
+EESchema Schematic File Version 2
+LIBS:fieldDevice_symbols
+LIBS:ce_header
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:FieldDevice-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CE_Header H?
+U 1 1 593460FA
+P 2450 2250
+F 0 "H?" H 3150 1050 60  0000 C CNN
+F 1 "CE_Header" H 2450 3350 60  0000 C CNN
+F 2 "" H 2050 2650 60  0000 C CNN
+F 3 "" H 2050 2650 60  0000 C CNN
+	1    2450 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L DIGI_XBEE H?
+U 1 1 59346B0D
+P 9250 2000
+F 0 "H?" H 10000 1100 60  0000 C CNN
+F 1 "DIGI_XBEE" H 9200 2550 60  0000 C CNN
+F 2 "" H 8600 1800 60  0000 C CNN
+F 3 "" H 8600 1800 60  0000 C CNN
+	1    9250 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 59346BB1
+P 4050 2400
+F 0 "#PWR?" H 4050 2150 50  0001 C CNN
+F 1 "GND" H 4050 2250 50  0000 C CNN
+F 2 "" H 4050 2400 50  0000 C CNN
+F 3 "" H 4050 2400 50  0000 C CNN
+	1    4050 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 59346BE5
+P 900 3450
+F 0 "#PWR?" H 900 3200 50  0001 C CNN
+F 1 "GND" H 900 3300 50  0000 C CNN
+F 2 "" H 900 3450 50  0000 C CNN
+F 3 "" H 900 3450 50  0000 C CNN
+	1    900  3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 59346C08
+P 9250 3100
+F 0 "#PWR?" H 9250 2850 50  0001 C CNN
+F 1 "GND" H 9250 2950 50  0000 C CNN
+F 2 "" H 9250 3100 50  0000 C CNN
+F 3 "" H 9250 3100 50  0000 C CNN
+	1    9250 3100
+	1    0    0    -1  
+$EndComp
+Text Label 3850 2450 2    60   ~ 0
+3V3
+Text Label 8800 850  0    60   ~ 0
+3V3
+Text Label 650  2050 0    60   ~ 0
+RX
+Text Label 4350 2050 2    60   ~ 0
+TX
+$Comp
+L R R?
+U 1 1 59346CE3
+P 3800 2050
+F 0 "R?" V 3880 2050 50  0000 C CNN
+F 1 "0" V 3800 2050 50  0000 C CNN
+F 2 "" V 3730 2050 50  0000 C CNN
+F 3 "" H 3800 2050 50  0000 C CNN
+	1    3800 2050
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 59346DB3
+P 1050 2050
+F 0 "R?" V 1130 2050 50  0000 C CNN
+F 1 "0" V 1050 2050 50  0000 C CNN
+F 2 "" V 980 2050 50  0000 C CNN
+F 3 "" H 1050 2050 50  0000 C CNN
+	1    1050 2050
+	0    1    1    0   
+$EndComp
+Text Label 7700 1750 0    60   ~ 0
+TX
+Text Label 7700 1850 0    60   ~ 0
+RX
+NoConn ~ 8150 1950
+NoConn ~ 8150 2150
+NoConn ~ 8150 2250
+NoConn ~ 8150 2450
+NoConn ~ 10350 2550
+NoConn ~ 10350 2450
+NoConn ~ 10350 2350
+NoConn ~ 10350 2250
+NoConn ~ 10350 2150
+NoConn ~ 10350 2050
+NoConn ~ 10350 1950
+NoConn ~ 10350 1850
+NoConn ~ 10350 1750
+NoConn ~ 10350 1650
+$Comp
+L DS7505 U?
+U 1 1 59347421
+P 2250 6100
+F 0 "U?" H 2600 5650 60  0000 C CNN
+F 1 "DS7505" H 2250 6450 60  0000 C CNN
+F 2 "" H 2250 5900 60  0000 C CNN
+F 3 "" H 2250 5900 60  0000 C CNN
+	1    2250 6100
+	1    0    0    -1  
+$EndComp
+Text Label 3600 5800 2    60   ~ 0
+3V3
+$Comp
+L GND #PWR?
+U 1 1 59347521
+P 1300 6600
+F 0 "#PWR?" H 1300 6350 50  0001 C CNN
+F 1 "GND" H 1300 6450 50  0000 C CNN
+F 2 "" H 1300 6600 50  0000 C CNN
+F 3 "" H 1300 6600 50  0000 C CNN
+	1    1300 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 593475EC
+P 3100 6750
+F 0 "R?" V 3180 6750 50  0000 C CNN
+F 1 "0" V 3100 6750 50  0000 C CNN
+F 2 "" V 3030 6750 50  0000 C CNN
+F 3 "" H 3100 6750 50  0000 C CNN
+	1    3100 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 59347631
+P 3350 6750
+F 0 "R?" V 3430 6750 50  0000 C CNN
+F 1 "0" V 3350 6750 50  0000 C CNN
+F 2 "" V 3280 6750 50  0000 C CNN
+F 3 "" H 3350 6750 50  0000 C CNN
+	1    3350 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5934765B
+P 3600 6750
+F 0 "R?" V 3680 6750 50  0000 C CNN
+F 1 "0" V 3600 6750 50  0000 C CNN
+F 2 "" V 3530 6750 50  0000 C CNN
+F 3 "" H 3600 6750 50  0000 C CNN
+	1    3600 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 59347764
+P 3200 7150
+F 0 "#PWR?" H 3200 6900 50  0001 C CNN
+F 1 "GND" H 3200 7000 50  0000 C CNN
+F 2 "" H 3200 7150 50  0000 C CNN
+F 3 "" H 3200 7150 50  0000 C CNN
+	1    3200 7150
+	1    0    0    -1  
+$EndComp
+Text Label 650  2650 0    60   ~ 0
+SCK
+Text Label 4350 2650 2    60   ~ 0
+SDA
+Text Label 1000 5800 0    60   ~ 0
+SDA
+Text Label 1000 6000 0    60   ~ 0
+SCK
+Text Notes 2900 7450 0    60   ~ 0
+Fixed address of 0x90
+Text Notes 1850 5550 0    60   ~ 0
+Temperature Sensor
+$Comp
+L R R?
+U 1 1 59347E45
+P 9300 4450
+F 0 "R?" V 9380 4450 50  0000 C CNN
+F 1 "10k" V 9300 4450 50  0000 C CNN
+F 2 "" V 9230 4450 50  0000 C CNN
+F 3 "" H 9300 4450 50  0000 C CNN
+	1    9300 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 59347F40
+P 9300 5450
+F 0 "R?" V 9380 5450 50  0000 C CNN
+F 1 "5k" V 9300 5450 50  0000 C CNN
+F 2 "" V 9230 5450 50  0000 C CNN
+F 3 "" H 9300 5450 50  0000 C CNN
+	1    9300 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 593481AF
+P 9300 6050
+F 0 "#PWR?" H 9300 5800 50  0001 C CNN
+F 1 "GND" H 9300 5900 50  0000 C CNN
+F 2 "" H 9300 6050 50  0000 C CNN
+F 3 "" H 9300 6050 50  0000 C CNN
+	1    9300 6050
+	1    0    0    -1  
+$EndComp
+Text Label 10200 5800 2    60   ~ 0
+TEST_NEG
+Text Label 10200 4150 2    60   ~ 0
+TEST_POS
+$Comp
+L D D?
+U 1 1 5934837F
+P 8300 4700
+F 0 "D?" H 8300 4800 50  0000 C CNN
+F 1 "D" H 8300 4600 50  0000 C CNN
+F 2 "" H 8300 4700 50  0000 C CNN
+F 3 "" H 8300 4700 50  0000 C CNN
+	1    8300 4700
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 59348402
+P 8300 5050
+F 0 "#PWR?" H 8300 4800 50  0001 C CNN
+F 1 "GND" H 8300 4900 50  0000 C CNN
+F 2 "" H 8300 5050 50  0000 C CNN
+F 3 "" H 8300 5050 50  0000 C CNN
+	1    8300 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 2400 4050 2250
+Wire Wire Line
+	4050 2250 3450 2250
+Wire Wire Line
+	900  3450 900  3250
+Wire Wire Line
+	900  3250 1450 3250
+Wire Wire Line
+	9250 3000 9250 3100
+Wire Wire Line
+	3450 2450 3850 2450
+Wire Wire Line
+	9250 850  8800 850 
+Wire Wire Line
+	3450 2050 3650 2050
+Wire Wire Line
+	3950 2050 4350 2050
+Wire Wire Line
+	650  2050 900  2050
+Wire Wire Line
+	1200 2050 1450 2050
+Wire Wire Line
+	8150 1750 7700 1750
+Wire Wire Line
+	8150 1850 7700 1850
+Wire Wire Line
+	2900 5800 3600 5800
+Wire Wire Line
+	1550 6400 1300 6400
+Wire Wire Line
+	1300 6400 1300 6600
+Wire Wire Line
+	1550 5800 1000 5800
+Wire Wire Line
+	1550 6000 1000 6000
+Wire Wire Line
+	1550 6200 1000 6200
+Wire Wire Line
+	3100 6900 3100 7050
+Wire Wire Line
+	3100 7050 3600 7050
+Wire Wire Line
+	3600 7050 3600 6900
+Wire Wire Line
+	3350 6900 3350 7050
+Connection ~ 3350 7050
+Wire Wire Line
+	3200 7050 3200 7150
+Connection ~ 3200 7050
+Wire Wire Line
+	2900 6400 3100 6400
+Wire Wire Line
+	3100 6400 3100 6600
+Wire Wire Line
+	2900 6200 3350 6200
+Wire Wire Line
+	3350 6200 3350 6600
+Wire Wire Line
+	2900 6000 3600 6000
+Wire Wire Line
+	3600 6000 3600 6600
+Wire Wire Line
+	1450 2650 650  2650
+Wire Wire Line
+	3450 2650 4350 2650
+Wire Wire Line
+	9300 4300 9300 4150
+Wire Wire Line
+	9000 4150 10200 4150
+Connection ~ 9300 4150
+Wire Wire Line
+	8300 5050 8300 4850
+$Comp
+L THERMISTOR TH?
+U 1 1 593484DA
+P 8750 4150
+F 0 "TH?" V 8850 4200 50  0000 C CNN
+F 1 "THERMISTOR" V 8650 4150 50  0000 C BNN
+F 2 "" H 8750 4150 50  0000 C CNN
+F 3 "" H 8750 4150 50  0000 C CNN
+	1    8750 4150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8300 4550 8300 4150
+Wire Wire Line
+	8300 4150 8500 4150
+$Comp
+L POT RV?
+U 1 1 593485DF
+P 9300 4950
+F 0 "RV?" H 9300 4850 50  0000 C CNN
+F 1 "POT" H 9300 4950 50  0000 C CNN
+F 2 "" H 9300 4950 50  0000 C CNN
+F 3 "" H 9300 4950 50  0000 C CNN
+	1    9300 4950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9300 5800 10200 5800
+Wire Wire Line
+	9300 5600 9300 6050
+Connection ~ 9300 5800
+Wire Wire Line
+	9300 4600 9300 4700
+Wire Wire Line
+	9300 5200 9300 5300
+Wire Wire Line
+	9450 4950 9950 4950
+Text Label 9950 4950 2    60   ~ 0
+VMesure
+Wire Wire Line
+	1450 2850 650  2850
+Text Label 650  2850 0    60   ~ 0
+VMesure
+Text Notes 9000 3800 0    60   ~ 0
+Voltage Sensor
+Wire Wire Line
+	9250 850  9250 950 
+$EndSCHEMATC
