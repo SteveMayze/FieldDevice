@@ -1,4 +1,4 @@
-update=2017 June 04, Sunday 23:35:31
+update=05/06/2017 13:31:50
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,12 +23,14 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
-LibDir=/Users/steve/Documents/PCBs/CE_Header/CE_Header/lib
+LibDir=../../../CE_Header
 [eeschema/libraries]
 LibName1=lib/fieldDevice_symbols
-LibName2=/Users/steve/Documents/PCBs/CE_Header/CE_Header/lib/ce_header
+LibName2=CE_Header/lib/ce_header
 LibName3=power
 LibName4=device
 LibName5=transistors
@@ -58,5 +60,3 @@ LibName28=opto
 LibName29=atmel
 LibName30=contrib
 LibName31=valves
-[general]
-version=1
