@@ -1,0 +1,258 @@
+EESchema Schematic File Version 2
+LIBS:fieldDevice_symbols
+LIBS:ce_header
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:FieldDevice-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L EA_DOGMxxx-A U301
+U 1 1 593F5011
+P 5550 2850
+F 0 "U301" H 5400 3450 60  0000 C CNN
+F 1 "EA_DOGMxxx-A" H 5600 2850 60  0000 C CNN
+F 2 "FieldDevice_Footprints:EA_DOGM081x-A" V 4450 5200 60  0001 C CNN
+F 3 "" V 4450 5200 60  0000 C CNN
+F 4 "EA DOGM801W-A" H 5550 2850 60  0001 C CNN "MPN"
+F 5 "Value" H 5550 2850 60  0001 C CNN "Link"
+	1    5550 2850
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6350 1800
+NoConn ~ 6250 1800
+NoConn ~ 5150 1800
+NoConn ~ 5050 1800
+Wire Wire Line
+	6650 2700 7200 2700
+Text HLabel 7200 2700 2    60   Input ~ 0
+3V3
+Wire Wire Line
+	4450 2150 3850 2150
+$Comp
+L GND #PWR09
+U 1 1 593F50AA
+P 6900 2450
+F 0 "#PWR09" H 6900 2200 50  0001 C CNN
+F 1 "GND" H 6900 2300 50  0000 C CNN
+F 2 "" H 6900 2450 60  0000 C CNN
+F 3 "" H 6900 2450 60  0000 C CNN
+	1    6900 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 2400 6900 2400
+Wire Wire Line
+	6900 2400 6900 2450
+Wire Wire Line
+	5950 4100 5950 3900
+Wire Wire Line
+	5250 4100 5950 4100
+Wire Wire Line
+	5250 4100 5250 3900
+Wire Wire Line
+	5350 3900 5350 4100
+Connection ~ 5350 4100
+Wire Wire Line
+	5450 3900 5450 4100
+Connection ~ 5450 4100
+Wire Wire Line
+	5550 3900 5550 4100
+Connection ~ 5550 4100
+Wire Wire Line
+	5650 3900 5650 4100
+Connection ~ 5650 4100
+Wire Wire Line
+	5750 3900 5750 4100
+Connection ~ 5750 4100
+$Comp
+L GND #PWR010
+U 1 1 593F5140
+P 6050 4150
+F 0 "#PWR010" H 6050 3900 50  0001 C CNN
+F 1 "GND" H 6050 4000 50  0000 C CNN
+F 2 "" H 6050 4150 60  0000 C CNN
+F 3 "" H 6050 4150 60  0000 C CNN
+	1    6050 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 3900 6050 4150
+Wire Wire Line
+	6150 3900 6150 4500
+Wire Wire Line
+	6150 4500 5800 4500
+Text HLabel 5800 4500 0    60   Input ~ 0
+RS
+Text HLabel 5500 4300 0    60   Input ~ 0
+3V3
+$Comp
+L GND #PWR011
+U 1 1 593F51AC
+P 3250 2400
+F 0 "#PWR011" H 3250 2150 50  0001 C CNN
+F 1 "GND" H 3250 2250 50  0000 C CNN
+F 2 "" H 3250 2400 60  0000 C CNN
+F 3 "" H 3250 2400 60  0000 C CNN
+	1    3250 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 2400 3250 2350
+Wire Wire Line
+	3250 2350 4450 2350
+$Comp
+L C C301
+U 1 1 593F51D8
+P 4200 2750
+F 0 "C301" H 4225 2850 50  0000 L CNN
+F 1 "0.1~~1μF" H 4225 2650 50  0000 L CNN
+F 2 "Capacitors_SMD:C_1206" H 4238 2600 30  0001 C CNN
+F 3 "" H 4200 2750 60  0000 C CNN
+F 4 "X7R-G1206 1,0/50" H 4200 2750 60  0001 C CNN "MPN"
+F 5 "Value" H 4200 2750 60  0001 C CNN "Link"
+	1    4200 2750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4450 2600 4200 2600
+Wire Wire Line
+	4200 2900 4450 2900
+$Comp
+L C C302
+U 1 1 593F5875
+P 4200 3350
+F 0 "C302" H 4225 3450 50  0000 L CNN
+F 1 "0.47~~2.2μF" H 4225 3250 50  0000 L CNN
+F 2 "Capacitors_SMD:C_1206" H 4238 3200 30  0001 C CNN
+F 3 "" H 4200 3350 60  0000 C CNN
+F 4 "X7R-G1206 1,0/50" H 4200 3350 60  0001 C CNN "MPN"
+F 5 "Value" H 4200 3350 60  0001 C CNN "Link"
+	1    4200 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4200 3200 4450 3200
+Wire Wire Line
+	4200 3500 4450 3500
+Text HLabel 3900 3150 0    60   Input ~ 0
+3V3
+Wire Wire Line
+	3900 3150 4350 3150
+Wire Wire Line
+	4350 3150 4350 3200
+Connection ~ 4350 3200
+Wire Wire Line
+	5500 4300 5600 4300
+Wire Wire Line
+	5600 4300 5600 4100
+Connection ~ 5600 4100
+Wire Wire Line
+	5050 3900 5050 4100
+Wire Wire Line
+	5050 4100 4500 4100
+Wire Wire Line
+	5150 3900 5150 4200
+Wire Wire Line
+	5150 4200 4500 4200
+Text HLabel 4500 4100 0    60   Input ~ 0
+MOSI
+Text HLabel 4500 4200 0    60   Input ~ 0
+SCK
+Text HLabel 3850 2150 0    60   Input ~ 0
+3V3
+Wire Wire Line
+	6350 3900 6350 4650
+Wire Wire Line
+	6350 4650 5800 4650
+Text HLabel 5800 4650 0    60   Input ~ 0
+CS
+$Comp
+L SW_PUSH SW301
+U 1 1 593FDBDD
+P 8950 1500
+F 0 "SW301" H 9100 1610 50  0000 C CNN
+F 1 "SW_PUSH" H 8950 1420 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 8950 1500 60  0001 C CNN
+F 3 "" H 8950 1500 60  0000 C CNN
+	1    8950 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR012
+U 1 1 593FDBE4
+P 9450 2400
+F 0 "#PWR012" H 9450 2150 50  0001 C CNN
+F 1 "GND" H 9450 2250 50  0000 C CNN
+F 2 "" H 9450 2400 50  0000 C CNN
+F 3 "" H 9450 2400 50  0000 C CNN
+	1    9450 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9250 1500 9450 1500
+Wire Wire Line
+	9450 1500 9450 2400
+Wire Wire Line
+	8650 1500 8150 1500
+Text HLabel 8150 1500 0    60   Input ~ 0
+Display
+$Comp
+L C C303
+U 1 1 59402950
+P 8550 2050
+F 0 "C303" H 8575 2150 50  0000 L CNN
+F 1 "0.1μF" H 8575 1950 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 8588 1900 30  0001 C CNN
+F 3 "" H 8550 2050 60  0000 C CNN
+	1    8550 2050
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8550 2200 8550 2300
+Wire Wire Line
+	8550 2300 9450 2300
+Connection ~ 9450 2300
+Wire Wire Line
+	8550 1900 8550 1500
+Connection ~ 8550 1500
+$EndSCHEMATC
