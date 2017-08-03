@@ -125,7 +125,7 @@ F 5 "Value" H 2900 1400 60  0001 C CNN "Link"
 $EndComp
 Text Notes 5000 1400 0    60   ~ 0
 +12V
-Text Notes 2420 2370 0    60   ~ 0
+Text Notes 2260 2455 0    60   ~ 0
 ~~0 - 3V3
 $Comp
 L C C201
