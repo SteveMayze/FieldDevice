@@ -505,4 +505,6 @@ $EndComp
 Wire Wire Line
 	5000 6200 5000 6300
 Connection ~ 5000 5800
+Text Notes 5200 5450 0    60   ~ 0
+Pin 14 on Teency\ni.e. A0
 $EndSCHEMATC

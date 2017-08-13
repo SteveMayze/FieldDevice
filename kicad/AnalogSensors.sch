@@ -48,27 +48,27 @@ $EndDescr
 $Comp
 L R R201
 U 1 1 593EDD83
-P 3500 1700
-F 0 "R201" V 3580 1700 50  0000 C CNN
-F 1 "100kΩ 0.1%" V 3420 1700 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 3430 1700 50  0001 C CNN
-F 3 "" H 3500 1700 50  0000 C CNN
-F 4 "SPR-1206 100K" H 3500 1700 60  0001 C CNN "MPN"
-F 5 "Value" H 3500 1700 60  0001 C CNN "Link"
-	1    3500 1700
+P 3500 1800
+F 0 "R201" V 3580 1800 50  0000 C CNN
+F 1 "100kΩ 0.1%" V 3420 1800 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206" V 3430 1800 50  0001 C CNN
+F 3 "" H 3500 1800 50  0000 C CNN
+F 4 "SPR-1206 100K" H 3500 1800 60  0001 C CNN "MPN"
+F 5 "Value" H 3500 1800 60  0001 C CNN "Link"
+	1    3500 1800
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R202
 U 1 1 593EDD8A
-P 3500 2850
-F 0 "R202" V 3580 2850 50  0000 C CNN
-F 1 "39kΩ 0.1%" V 3420 2850 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 3430 2850 50  0001 C CNN
-F 3 "" H 3500 2850 50  0000 C CNN
-F 4 "SPR-1206 39,0K" H 3500 2850 60  0001 C CNN "MPN"
-F 5 "Value" H 3500 2850 60  0001 C CNN "Link"
-	1    3500 2850
+P 3500 2700
+F 0 "R202" V 3580 2700 50  0000 C CNN
+F 1 "39kΩ 0.1%" V 3420 2700 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206" V 3430 2700 50  0001 C CNN
+F 3 "" H 3500 2700 50  0000 C CNN
+F 4 "SPR-1206 39,0K" H 3500 2700 60  0001 C CNN "MPN"
+F 5 "Value" H 3500 2700 60  0001 C CNN "Link"
+	1    3500 2700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -93,9 +93,9 @@ P 2400 1650
 F 0 "D201" H 2400 1750 50  0000 C CNN
 F 1 "1N4148WFL" H 2400 1550 50  0000 C CNN
 F 2 "FieldDevice_Footprints:D_SOD-123" H 2400 1650 50  0001 C CNN
-F 3 "" H 2400 1650 50  0000 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Vishay%20Semiconductors/1N4148WFL-G.pdf" H 2400 1650 50  0001 C CNN
 F 4 "1N4148WFL-G3-08GICT-ND" H 2400 1650 60  0001 C CNN "MPN"
-F 5 "Value" H 2400 1650 60  0001 C CNN "Link"
+F 5 "https://www.digikey.de/products/de?keywords=1N4148WFL-G3-08GICT-ND" H 2400 1650 60  0001 C CNN "Link"
 	1    2400 1650
 	0    1    1    0   
 $EndComp
@@ -119,7 +119,7 @@ F 1 "0.50A 15V" V 2800 1400 50  0000 C BNN
 F 2 "Resistors_SMD:R_1812_HandSoldering" H 2900 1400 50  0001 C CNN
 F 3 "http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf" H 2900 1400 50  0001 C CNN
 F 4 "MF-MSMF050-2" H 2900 1400 60  0001 C CNN "MPN"
-F 5 "Value" H 2900 1400 60  0001 C CNN "Link"
+F 5 "https://www.digikey.de/product-detail/de/bourns-inc/MF-MSMF050-2/MF-MSMF050-2TR-ND/662816" H 2900 1400 60  0001 C CNN "Link"
 	1    2900 1400
 	0    1    1    0   
 $EndComp
@@ -130,23 +130,23 @@ Text Notes 2260 2455 0    60   ~ 0
 $Comp
 L C C201
 U 1 1 593EDDC1
-P 3050 2650
-F 0 "C201" H 3075 2750 50  0000 L CNN
-F 1 "100nF" H 3075 2550 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 3088 2500 30  0001 C CNN
-F 3 "" H 3050 2650 60  0000 C CNN
-	1    3050 2650
+P 3950 2500
+F 0 "C201" H 3975 2600 50  0000 L CNN
+F 1 "100nF" H 3975 2400 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 3988 2350 30  0001 C CNN
+F 3 "" H 3950 2500 60  0000 C CNN
+	1    3950 2500
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR09
 U 1 1 593EDDCB
-P 3050 2950
-F 0 "#PWR09" H 3050 2700 50  0001 C CNN
-F 1 "GND" H 3050 2800 50  0000 C CNN
-F 2 "" H 3050 2950 50  0000 C CNN
-F 3 "" H 3050 2950 50  0000 C CNN
-	1    3050 2950
+P 3950 2700
+F 0 "#PWR09" H 3950 2450 50  0001 C CNN
+F 1 "GND" H 3950 2550 50  0000 C CNN
+F 2 "" H 3950 2700 50  0000 C CNN
+F 3 "" H 3950 2700 50  0000 C CNN
+	1    3950 2700
 	1    0    0    -1  
 $EndComp
 Text HLabel 2050 2250 0    60   Input ~ 0
@@ -160,19 +160,16 @@ Wire Wire Line
 Wire Wire Line
 	3150 1400 4600 1400
 Wire Wire Line
-	3500 1400 3500 1550
+	3500 1400 3500 1650
 Connection ~ 3500 1400
 Wire Wire Line
-	3500 1850 3500 2700
+	3500 1950 3500 2550
 Wire Wire Line
-	3500 3000 3500 3450
+	3500 2850 3500 3450
 Wire Wire Line
-	3050 2800 3050 2950
+	3950 2650 3950 2700
 Wire Wire Line
-	3050 2500 3050 2400
-Wire Wire Line
-	3050 2400 3500 2400
-Connection ~ 3500 2400
+	3950 2300 3950 2350
 Wire Wire Line
 	3500 3200 4600 3200
 Connection ~ 3500 3200
@@ -181,7 +178,7 @@ L CONN_01X01 P201
 U 1 1 5940670D
 P 4800 1400
 F 0 "P201" H 4800 1500 50  0000 C CNN
-F 1 "CONN_01X01" V 4900 1400 50  0000 C CNN
+F 1 "Positive" H 4800 1300 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4800 1400 60  0001 C CNN
 F 3 "" H 4800 1400 60  0000 C CNN
 	1    4800 1400
@@ -192,7 +189,7 @@ L CONN_01X01 P202
 U 1 1 594067C4
 P 4800 3200
 F 0 "P202" H 4800 3300 50  0000 C CNN
-F 1 "CONN_01X01" V 4900 3200 50  0000 C CNN
+F 1 "Negative" H 4800 3100 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4800 3200 60  0001 C CNN
 F 3 "" H 4800 3200 60  0000 C CNN
 	1    4800 3200
@@ -215,4 +212,40 @@ Wire Wire Line
 Wire Wire Line
 	2600 2250 3500 2250
 Connection ~ 3500 2250
+Wire Wire Line
+	3500 2300 3950 2300
+Connection ~ 3500 2300
+$Comp
+L GND #PWR?
+U 1 1 598F2A3D
+P 3050 3150
+F 0 "#PWR?" H 3050 2900 50  0001 C CNN
+F 1 "GND" H 3050 3000 50  0000 C CNN
+F 2 "" H 3050 3150 50  0000 C CNN
+F 3 "" H 3050 3150 50  0000 C CNN
+	1    3050 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L ZENER D?
+U 1 1 598F27BC
+P 3050 2750
+F 0 "D?" H 3050 2850 50  0000 C CNN
+F 1 "3V3" H 3050 2650 50  0000 C CNN
+F 2 "" H 3050 2750 60  0000 C CNN
+F 3 "http://www.onsemi.com/pub/Collateral/BZX84C2V4LT1-D.PDF" H 3050 2750 60  0001 C CNN
+F 4 "BZX84C3V3LT1G" H 3050 2750 60  0001 C CNN "MPN"
+F 5 "https://www.digikey.de/product-detail/de/on-semiconductor/BZX84C3V3LT1G/BZX84C3V3LT1GOSTR-ND/918402" H 3050 2750 60  0001 C CNN "Link"
+	1    3050 2750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3050 2550 3050 2250
+Connection ~ 3050 2250
+Wire Wire Line
+	3050 3150 3050 2950
+Text Notes 4750 2600 0    40   ~ 0
+\nThe 12v input is to be converted to 0-3v3 for a Teency Ananlog input.\n\nThe diode (D201) and a thermistor (TH201) as a form of protection should \nthe input be reversed.\n\nIn addition, to protect the Teency Analog input. (The are 5V tolerant but \nwill cap the reading for anything above 3V3). To that end, a 3V3 Zenner \ncould help. Anything higher than the 12V is not expected, but possibly \nupto 14V might be possible.\n\nTesting this circute, over 5V was seen when the input exceeded 18V
+Text Notes 3550 2150 0    60   ~ 0
+~~0 - 3V3
 $EndSCHEMATC
