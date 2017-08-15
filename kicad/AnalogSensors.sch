@@ -215,35 +215,6 @@ Connection ~ 3500 2250
 Wire Wire Line
 	3500 2300 3950 2300
 Connection ~ 3500 2300
-$Comp
-L GND #PWR?
-U 1 1 598F2A3D
-P 3050 3150
-F 0 "#PWR?" H 3050 2900 50  0001 C CNN
-F 1 "GND" H 3050 3000 50  0000 C CNN
-F 2 "" H 3050 3150 50  0000 C CNN
-F 3 "" H 3050 3150 50  0000 C CNN
-	1    3050 3150
-	1    0    0    -1  
-$EndComp
-$Comp
-L ZENER D?
-U 1 1 598F27BC
-P 3050 2750
-F 0 "D?" H 3050 2850 50  0000 C CNN
-F 1 "3V3" H 3050 2650 50  0000 C CNN
-F 2 "" H 3050 2750 60  0000 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/BZX84C2V4LT1-D.PDF" H 3050 2750 60  0001 C CNN
-F 4 "BZX84C3V3LT1G" H 3050 2750 60  0001 C CNN "MPN"
-F 5 "https://www.digikey.de/product-detail/de/on-semiconductor/BZX84C3V3LT1G/BZX84C3V3LT1GOSTR-ND/918402" H 3050 2750 60  0001 C CNN "Link"
-	1    3050 2750
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3050 2550 3050 2250
-Connection ~ 3050 2250
-Wire Wire Line
-	3050 3150 3050 2950
 Text Notes 4750 2600 0    40   ~ 0
 \nThe 12v input is to be converted to 0-3v3 for a Teency Ananlog input.\n\nThe diode (D201) and a thermistor (TH201) as a form of protection should \nthe input be reversed.\n\nIn addition, to protect the Teency Analog input. (The are 5V tolerant but \nwill cap the reading for anything above 3V3). To that end, a 3V3 Zenner \ncould help. Anything higher than the 12V is not expected, but possibly \nupto 14V might be possible.\n\nTesting this circute, over 5V was seen when the input exceeded 18V
 Text Notes 3550 2150 0    60   ~ 0
