@@ -52,7 +52,7 @@ Text HLabel 5450 2350 0    60   Input ~ 0
 Text HLabel 5450 2450 0    60   Input ~ 0
 MOSI
 Text HLabel 5450 2550 0    60   Input ~ 0
-SCK
+SPI_SCK
 Text HLabel 5450 2750 0    60   Input ~ 0
 CS
 $Comp
@@ -85,7 +85,7 @@ U 1 1 59402950
 P 8550 2050
 F 0 "C303" H 8575 2150 50  0000 L CNN
 F 1 "0.1μF" H 8575 1950 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 8588 1900 30  0001 C CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 8588 1900 30  0001 C CNN
 F 3 "" H 8550 2050 60  0000 C CNN
 	1    8550 2050
 	-1   0    0    1   

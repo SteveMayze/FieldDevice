@@ -50,8 +50,8 @@ L R R201
 U 1 1 593EDD83
 P 3500 1850
 F 0 "R201" V 3580 1850 50  0000 C CNN
-F 1 "60kΩ 0.1%" V 3420 1850 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 3430 1850 50  0001 C CNN
+F 1 "1MΩ 125mW  0.1%" H 4000 1800 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 3430 1850 50  0001 C CNN
 F 3 "" H 3500 1850 50  0000 C CNN
 F 4 "SPR-1206 100K" H 3500 1850 60  0001 C CNN "MPN"
 F 5 "Value" H 3500 1850 60  0001 C CNN "Link"
@@ -63,26 +63,15 @@ L R R202
 U 1 1 593EDD8A
 P 3500 2550
 F 0 "R202" V 3580 2550 50  0000 C CNN
-F 1 "30kΩ 0.1%" V 3420 2550 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 3430 2550 50  0001 C CNN
+F 1 "30kΩ 125mW  0.1%" H 4000 2500 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 3430 2550 50  0001 C CNN
 F 3 "" H 3500 2550 50  0000 C CNN
 F 4 "SPR-1206 39,0K" H 3500 2550 60  0001 C CNN "MPN"
 F 5 "Value" H 3500 2550 60  0001 C CNN "Link"
 	1    3500 2550
 	1    0    0    -1  
 $EndComp
-$Comp
-L GND #PWR07
-U 1 1 593EDD91
-P 4150 3200
-F 0 "#PWR07" H 4150 2950 50  0001 C CNN
-F 1 "GND" H 4150 3050 50  0000 C CNN
-F 2 "" H 4150 3200 50  0000 C CNN
-F 3 "" H 4150 3200 50  0000 C CNN
-	1    4150 3200
-	1    0    0    -1  
-$EndComp
-Text Label 4450 3650 2    60   ~ 0
+Text Label 4450 3050 2    60   ~ 0
 TEST_NEG_1
 Text Label 4450 1400 2    60   ~ 0
 TEST_POS_1
@@ -131,7 +120,7 @@ U 1 1 593EDDC1
 P 3000 2600
 F 0 "C201" H 3025 2700 50  0000 L CNN
 F 1 "100nF" H 3025 2500 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 3038 2450 30  0001 C CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3038 2450 30  0001 C CNN
 F 3 "" H 3000 2600 60  0000 C CNN
 	1    3000 2600
 	1    0    0    -1  
@@ -139,12 +128,12 @@ $EndComp
 $Comp
 L GND #PWR09
 U 1 1 593EDDCB
-P 3000 2800
-F 0 "#PWR09" H 3000 2550 50  0001 C CNN
-F 1 "GND" H 3000 2650 50  0000 C CNN
-F 2 "" H 3000 2800 50  0000 C CNN
-F 3 "" H 3000 2800 50  0000 C CNN
-	1    3000 2800
+P 3000 3500
+F 0 "#PWR09" H 3000 3250 50  0001 C CNN
+F 1 "GND" H 3000 3350 50  0000 C CNN
+F 2 "" H 3000 3500 50  0000 C CNN
+F 3 "" H 3000 3500 50  0000 C CNN
+	1    3000 3500
 	1    0    0    -1  
 $EndComp
 Text HLabel 2050 2250 0    60   Input ~ 0
@@ -163,9 +152,7 @@ Connection ~ 3500 1400
 Wire Wire Line
 	3500 2000 3500 2400
 Wire Wire Line
-	3000 2750 3000 2800
-Wire Wire Line
-	3500 3650 4600 3650
+	3000 2750 3000 3500
 $Comp
 L CONN_01X01 P201
 U 1 1 5940670D
@@ -180,12 +167,12 @@ $EndComp
 $Comp
 L CONN_01X01 P202
 U 1 1 594067C4
-P 4800 3650
-F 0 "P202" H 4800 3750 50  0000 C CNN
-F 1 "Negative" H 4800 3550 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4800 3650 60  0001 C CNN
-F 3 "" H 4800 3650 60  0000 C CNN
-	1    4800 3650
+P 4800 3050
+F 0 "P202" H 4800 3150 50  0000 C CNN
+F 1 "Negative" H 4800 2950 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4800 3050 60  0001 C CNN
+F 3 "" H 4800 3050 60  0000 C CNN
+	1    4800 3050
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -194,7 +181,7 @@ U 1 1 595D4DB1
 P 2450 2250
 F 0 "R203" V 2530 2250 50  0000 C CNN
 F 1 "0Ω" V 2370 2250 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805" V 2380 2250 50  0001 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2380 2250 50  0001 C CNN
 F 3 "" H 2450 2250 50  0000 C CNN
 F 4 "Value" H 2450 2250 60  0001 C CNN "Link"
 	1    2450 2250
@@ -206,48 +193,14 @@ Wire Wire Line
 	2600 2250 3500 2250
 Connection ~ 3500 2250
 Text Notes 4750 2700 0    50   ~ 0
-\nThe 12v input is to be converted to 0-3v3 for a \nTeency Ananlog input.\n\nThe diode (D201) and a thermistor (TH201) as \na form of protection should the input be \nreversed.\n\nIn addition, to protect the Teency Analog \ninput. (The are 5V tolerant but will cap the \nreading for anything above 3V3).\n\n
-Text Notes 3850 2600 0    50   ~ 0
-0-3V
-$Comp
-L R R?
-U 1 1 599477ED
-P 3500 3200
-F 0 "R?" V 3580 3200 50  0000 C CNN
-F 1 "50kΩ 0.1%" V 3420 3200 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 3430 3200 50  0001 C CNN
-F 3 "" H 3500 3200 50  0000 C CNN
-F 4 "SPR-1206 39,0K" H 3500 3200 60  0001 C CNN "MPN"
-F 5 "Value" H 3500 3200 60  0001 C CNN "Link"
-	1    3500 3200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3500 2700 3500 3050
-Wire Wire Line
-	3500 3350 3500 3650
-Wire Wire Line
-	3500 2950 4150 2950
-Wire Wire Line
-	4150 2950 4150 3200
-Connection ~ 3500 2950
+\nThe 12v input (14.8 used in calculations) is to be converted to 0-3v3 for a \nTeency Ananlog input.\n\nThe diode (D201) and a thermistor (TH201) as \na form of protection should the input be \nreversed.\n\nIn addition, to protect the Teency Analog \ninput. (The are 5V tolerant but will cap the \nreading for anything above 3V3).\n\nhttp://tinyurl.com/ybmx4wbv
 Wire Wire Line
 	3000 2450 3000 2250
 Connection ~ 3000 2250
-Wire Notes Line
-	4400 2250 4400 2650
-Wire Notes Line
-	4400 2850 4400 3500
-Text Notes 4250 2800 0    60   ~ 0
-0-8V
-Wire Notes Line
-	3600 2250 4550 2250
-Wire Notes Line
-	3950 2000 3950 2450
-Wire Notes Line
-	3950 2650 3950 2900
-Wire Notes Line
-	3950 1800 3950 1450
-Text Notes 3850 1900 0    50   ~ 0
-0-6V
+Wire Wire Line
+	3500 3050 3500 2700
+Wire Wire Line
+	3000 3050 4600 3050
+Connection ~ 3000 3050
+Connection ~ 3500 3050
 $EndSCHEMATC

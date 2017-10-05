@@ -127,7 +127,7 @@ void loop()
   
    nss.printf( "\n{id: %d, voltage: %f, temperature: %f}\n",
                 msg_id, voltage_level, temperature );
-  sprintf(message, "{id: %d, voltage: %f, temperature: %f}",
+  sprintf(message, "{id: %d, voltage: %f, temperature: %f}\n",
                  msg_id, voltage_level, temperature );
    msg_id++;
 
