@@ -8,3 +8,12 @@ SAB W31 14 55 6d 74 30 0c 01 06 L0002 NB W48 6f 77 64 79 21 NA
 
 
 SAB W31 14 55 6d 74 30 0c 01 06 L0002 NB W47 27 44 61 79 20 3a 29 NA
+
+Select A & B
+
+Write
+31 14 55 6d 74 30 0c 01 06
+Reset B
+Wait
+G'Day
+Reset A
