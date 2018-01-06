@@ -12,6 +12,9 @@
 #include <SPI.h>
 #include <math.h>
 
+#define _EA_DOGS_104
+#define _EA_DOGS_CLK 1000000
+
 #define VOLTAGE_SENSE 14
 #define ADC_VOLTAGE 0.0117302053
 #define nss Serial
@@ -94,9 +97,9 @@ void loop()
   nss.printf("Calling write message %s \n", message);
   writeMessage( message );
   
-   nss.printf( "\n{id: %d, voltage: %2.1f, temperature: %2.1f}\n",
+   nss.printf( "\n{\"id\": %d, \"voltage\": %2.1f, \"temperature\": %2.1f}\n",
                 msg_id, voltage_level, temperature );
-   sprintf(message, "{id: %d, voltage: %f, temperature: %f}\n",
+   sprintf(message, "{\"id\": %d, \"voltage\": %f, \"temperature\": %f}\n",
                  msg_id, voltage_level, temperature );
    msg_id++;
 
@@ -138,12 +141,65 @@ void loop()
     nss.println("No response from the target");
   }
 
-    
   delay(5000);
 
 }
 
 
+#ifdef _EA_DOGS_104
+
+#define _EA_EXECUTION_TIME_WAIT 1
+void initDisplay(){
+  nss.printf("Init display");
+
+  uint8_t init[12] = {0b11111000, 0x3A, 0x09, 0x06, 0x1E, 0x39, 0x1B, 0x6E, 0x56, 0x7F, 0x38, 0x0F};
+  uint8_t lsb, msb;
+
+  SPI.beginTransaction(SPISettings(_EA_DOGS_CLK, MSBFIRST, SPI_MODE3));
+  // take the SS pin low to select the chip:
+  digitalWrite(register_select, HIGH);
+  delayMicroseconds(50);
+  digitalWrite(display_select, LOW);
+  SPI.transfer( init[0] );  
+  for( uint8_t i=1; i<12; i++ ){
+     lsb = 0x00 & ( init[i] );
+     msb = 0x00 & ( init[i] << 4 );
+     SPI.transfer( lsb );
+     SPI.transfer( msb );
+     delayMicroseconds(_EA_EXECUTION_TIME_WAIT);
+  }
+  // take the SS pin high to de-select the chip:
+  digitalWrite(display_select, HIGH);
+  digitalWrite(register_select, HIGH);
+  SPI.endTransaction();
+}
+
+void writeMessage(char* value){
+  uint8_t lsb, msb;
+  uint8_t init = 0b11111010;
+  nss.printf("  >>> writing message %s \n", value);
+
+  SPI.beginTransaction(SPISettings(_EA_DOGS_CLK, MSBFIRST, SPI_MODE3));
+  // take the SS pin low to select the chip:
+  digitalWrite(display_select, LOW);
+  //  send in the address and value via SPI:
+  SPI.transfer(init);
+  for(int i=0; value[i] != 0; i++){
+     lsb = 0x00 & ( value[i] );
+     msb = 0x00 & ( value[i] << 4 );     
+     SPI.transfer(lsb);
+     SPI.transfer(msb);
+     delayMicroseconds(_EA_EXECUTION_TIME_WAIT);
+  }
+  // take the SS pin high to de-select the chip:
+  digitalWrite(display_select, HIGH);
+  // release control of the SPI port
+  SPI.endTransaction();
+}
+
+#endif
+
+#ifdef _EA_DOGS_108
 
 void initDisplay(){
   nss.printf("Init display");
@@ -152,17 +208,17 @@ void initDisplay(){
 
   SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
   // take the SS pin low to select the chip:
-  digitalWrite(register_select,LOW);
+  digitalWrite(register_select, LOW);
   //delayMicroseconds(10);
-  digitalWrite(display_select,LOW);
+  digitalWrite(display_select, LOW);
   for( int i=0; i<9; i++){
      SPI.transfer( init[i] );
      delayMicroseconds(50);
   }
   // take the SS pin high to de-select the chip:
-  digitalWrite(display_select,HIGH);
+  digitalWrite(display_select, HIGH);
   // delayMicroseconds(10);
-  digitalWrite(register_select,HIGH);
+  digitalWrite(register_select, HIGH);
   SPI.endTransaction();
 }
 
@@ -171,14 +227,16 @@ void writeMessage(char* value){
 
   SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
   // take the SS pin low to select the chip:
-  digitalWrite(display_select,LOW);
+  digitalWrite(display_select, LOW);
   //  send in the address and value via SPI:
   for(int i=0; value[i] != 0; i++){
      SPI.transfer(value[i]);
      delayMicroseconds(50);
   }
   // take the SS pin high to de-select the chip:
-  digitalWrite(display_select,HIGH);
+  digitalWrite(display_select, HIGH);
   // release control of the SPI port
   SPI.endTransaction();
 }
+
+#endif

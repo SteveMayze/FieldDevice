@@ -12,8 +12,19 @@ SAB W31 14 55 6d 74 30 0c 01 06 L0002 NB W47 27 44 61 79 20 3a 29 NA
 Select A & B
 
 Write
-31 14 55 6d 74 30 0c 01 06
+31 0011 0001 - 
+14 0001 0100 - Cursor controlled, set direction to right
+55 0101 0101
+6d 0110 1101
+74 0111 0100 - 
+30 0011 0000 - 8bit data, 2line display mode, single height, normal instruction set to be used.
+0c 0000 1100
+01 0000 0001 - Clear the display
+06 0000 0110 - Entire display, Cursor, no blinking
+
 Reset B
 Wait
 G'Day
 Reset A
+
+The datasheet indicated the uSeconds for each instruction. Adding a 50uS
