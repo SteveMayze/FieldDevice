@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:FieldDevice-rescue
 LIBS:fieldDevice_symbols
 LIBS:ce_header
 LIBS:power
@@ -45,15 +46,15 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 5450 2650 0    60   Input ~ 0
+Text HLabel 5450 2750 0    60   Input ~ 0
 RS
 Text HLabel 5450 2350 0    60   Input ~ 0
 3V3
 Text HLabel 5450 2450 0    60   Input ~ 0
 MOSI
-Text HLabel 5450 2550 0    60   Input ~ 0
+Text HLabel 5450 2650 0    60   Input ~ 0
 SPI_SCK
-Text HLabel 5450 2750 0    60   Input ~ 0
+Text HLabel 5450 2850 0    60   Input ~ 0
 CS
 $Comp
 L SW_PUSH SW301
@@ -67,10 +68,10 @@ F 3 "" H 8950 1500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L GND #PWR09
 U 1 1 593FDBE4
 P 9450 2400
-F 0 "#PWR010" H 9450 2150 50  0001 C CNN
+F 0 "#PWR09" H 9450 2150 50  0001 C CNN
 F 1 "GND" H 9450 2250 50  0000 C CNN
 F 2 "" H 9450 2400 50  0000 C CNN
 F 3 "" H 9450 2400 50  0000 C CNN
@@ -104,40 +105,44 @@ Connection ~ 9450 2300
 Wire Wire Line
 	8550 1900 8550 1500
 Connection ~ 8550 1500
-$Comp
-L CONN_01X06 P301
-U 1 1 598B33D0
-P 5900 2600
-F 0 "P301" H 5900 2950 50  0000 C CNN
-F 1 "CONN_01X06" V 6000 2600 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm" H 5900 2600 60  0001 C CNN
-F 3 "" H 5900 2600 60  0000 C CNN
-	1    5900 2600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5700 2350 5450 2350
 Wire Wire Line
 	5700 2450 5450 2450
 Wire Wire Line
-	5700 2550 5450 2550
-Wire Wire Line
 	5700 2650 5450 2650
 Wire Wire Line
 	5700 2750 5450 2750
 Wire Wire Line
-	5700 2850 5400 2850
+	5700 2850 5450 2850
 Wire Wire Line
-	5400 2850 5400 3000
+	5700 2950 5400 2950
+Wire Wire Line
+	5400 2950 5400 3100
 $Comp
-L GND #PWR011
+L GND #PWR010
 U 1 1 598B3757
-P 5400 3000
-F 0 "#PWR011" H 5400 2750 50  0001 C CNN
-F 1 "GND" H 5400 2850 50  0000 C CNN
-F 2 "" H 5400 3000 60  0000 C CNN
-F 3 "" H 5400 3000 60  0000 C CNN
-	1    5400 3000
+P 5400 3100
+F 0 "#PWR010" H 5400 2850 50  0001 C CNN
+F 1 "GND" H 5400 2950 50  0000 C CNN
+F 2 "" H 5400 3100 60  0000 C CNN
+F 3 "" H 5400 3100 60  0000 C CNN
+	1    5400 3100
 	1    0    0    -1  
 $EndComp
+$Comp
+L Conn_01x07_Female P301
+U 1 1 5A5666E2
+P 5900 2650
+F 0 "P301" H 5900 3050 50  0000 C CNN
+F 1 "Conn_01x07_Female" H 5900 2250 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x07_Pitch2.54mm" H 5900 2650 50  0001 C CNN
+F 3 "" H 5900 2650 50  0001 C CNN
+	1    5900 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 2550 5450 2550
+Text HLabel 5450 2550 0    60   Input ~ 0
+MISO
 $EndSCHEMATC

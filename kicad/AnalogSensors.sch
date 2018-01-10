@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:FieldDevice-rescue
 LIBS:fieldDevice_symbols
 LIBS:ce_header
 LIBS:power
@@ -89,10 +90,10 @@ F 5 "https://www.digikey.de/products/de?keywords=1N4148WFL-G3-08GICT-ND" H 2400 
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR08
+L GND #PWR07
 U 1 1 593EDDA0
 P 2400 1900
-F 0 "#PWR08" H 2400 1650 50  0001 C CNN
+F 0 "#PWR07" H 2400 1650 50  0001 C CNN
 F 1 "GND" H 2400 1750 50  0000 C CNN
 F 2 "" H 2400 1900 50  0000 C CNN
 F 3 "" H 2400 1900 50  0000 C CNN
@@ -126,10 +127,10 @@ F 3 "" H 3000 2600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR09
+L GND #PWR08
 U 1 1 593EDDCB
 P 3000 3500
-F 0 "#PWR09" H 3000 3250 50  0001 C CNN
+F 0 "#PWR08" H 3000 3250 50  0001 C CNN
 F 1 "GND" H 3000 3350 50  0000 C CNN
 F 2 "" H 3000 3500 50  0000 C CNN
 F 3 "" H 3000 3500 50  0000 C CNN

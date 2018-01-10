@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:FieldDevice-rescue
 LIBS:fieldDevice_symbols
 LIBS:ce_header
 LIBS:power
@@ -227,20 +228,18 @@ Text Label 2100 6000 0    60   ~ 0
 I2C_SCK
 Text Notes 2950 5550 0    60   ~ 0
 Temperature Sensor
-Text Notes 1050 4550 0    60   ~ 0
-# Seperate ADC for isolation away from the Micro. \n    Would this be advixable/necessary?\n# Would the PTC really provide any form of protection?\n# Could a Digital Potentiometer be used here?\n# How would this really be calibrated?\n
 Text Notes 3000 6950 0    60   ~ 0
 I²C Address '1010000'
-Text Notes 7500 1200 0    60   ~ 0
-The minimal configuration for the XBEE is \nVcc, GND, DIN and DOUT
+Text Notes 7350 1300 0    60   ~ 0
+The minimal configuration \nfor the XBEE is Vcc, GND, \nDin and Dout
 Text Label 1200 6200 0    60   ~ 0
 OverTemp
 $Sheet
-S 6650 5230 1500 1070
+S 9250 5080 1500 1070
 U 593ED75C
 F0 "Analog_Sensors" 60
 F1 "AnalogSensors.sch" 60
-F2 "ANLG_1" I L 6650 5450 60 
+F2 "ANLG_1" I L 9250 5300 60 
 $EndSheet
 Wire Wire Line
 	4150 2050 4150 1900
@@ -313,46 +312,46 @@ Wire Wire Line
 Wire Wire Line
 	650  1500 1550 1500
 Wire Wire Line
-	6650 5450 6050 5450
-Text Label 6050 5450 0    60   ~ 0
+	9250 5300 8650 5300
+Text Label 8650 5300 0    60   ~ 0
 ANLG_1
 Text Label 650  2500 0    60   ~ 0
 ANLG_1
 $Sheet
-S 6600 3700 1600 1200
+S 9200 3200 1450 1500
 U 593F4F7E
 F0 "Display" 60
 F1 "Display.sch" 60
-F2 "3V3" I L 6600 3850 60 
-F3 "RS" I L 6600 4500 60 
-F4 "MOSI" I L 6600 4050 60 
-F5 "SPI_SCK" I L 6600 4200 60 
-F6 "CS" I L 6600 4350 60 
-F7 "Display" I L 6600 4750 60 
+F2 "3V3" I L 9200 3350 60 
+F3 "RS" I L 9200 4150 60 
+F4 "MOSI" I L 9200 3550 60 
+F5 "SPI_SCK" I L 9200 3850 60 
+F6 "CS" I L 9200 4000 60 
+F7 "Display" I L 9200 4400 60 
+F8 "MISO" I L 9200 3700 60 
 $EndSheet
 Wire Wire Line
-	6600 3850 6150 3850
+	9200 3350 8750 3350
 Wire Wire Line
-	6600 4050 6150 4050
+	9200 3550 8750 3550
 Wire Wire Line
-	6600 4200 6150 4200
+	9200 3850 8750 3850
 Wire Wire Line
-	6600 4500 6150 4500
+	9200 4150 8750 4150
 Text Label 4450 2500 2    60   ~ 0
 REG_SEL
 Wire Wire Line
-	6600 4350 6150 4350
-Text Label 6150 4350 0    60   ~ 0
+	9200 4000 8750 4000
+Text Label 8750 4000 0    60   ~ 0
 CS
-Text Label 6150 4200 0    60   ~ 0
+Text Label 8750 3850 0    60   ~ 0
 SPI_CLK
-Text Label 6150 4050 0    60   ~ 0
+Text Label 8750 3550 0    60   ~ 0
 MOSI
-Text Label 6150 3850 0    60   ~ 0
+Text Label 8750 3350 0    60   ~ 0
 3V3
 Text Label 650  1300 0    60   ~ 0
 MOSI
-NoConn ~ 3550 1300
 Wire Wire Line
 	3550 1500 4450 1500
 Text Label 4450 1500 2    60   ~ 0
@@ -412,10 +411,10 @@ Wire Wire Line
 Wire Wire Line
 	4000 2500 4450 2500
 Wire Wire Line
-	6600 4750 6150 4750
-Text Label 6150 4750 0    60   ~ 0
+	9200 4400 8750 4400
+Text Label 8750 4400 0    60   ~ 0
 Display
-Text Label 6150 4500 0    60   ~ 0
+Text Label 8750 4150 0    60   ~ 0
 REG_SEL
 Wire Wire Line
 	650  2300 1550 2300
@@ -506,80 +505,78 @@ $EndComp
 Wire Wire Line
 	5000 6200 5000 6300
 Connection ~ 5000 5800
-Text Notes 5200 5450 0    60   ~ 0
+Text Notes 8400 5500 0    60   ~ 0
 Pin 14 on Teency\ni.e. A0
 $Comp
-L LED D101
+L LED-RESCUE-FieldDevice D101
 U 1 1 59CB7CCC
-P 5500 2650
-F 0 "D101" H 5500 2750 50  0000 C CNN
-F 1 "LED" H 5500 2550 50  0000 C CNN
-F 2 "Diodes_SMD:D_0805" H 5500 2650 60  0001 C CNN
-F 3 "" H 5500 2650 60  0000 C CNN
-	1    5500 2650
+P 5500 1600
+F 0 "D101" H 5500 1700 50  0000 C CNN
+F 1 "Tx" H 5500 1500 50  0000 C CNN
+F 2 "Diodes_SMD:D_0805" H 5500 1600 60  0001 C CNN
+F 3 "" H 5500 1600 60  0000 C CNN
+F 4 "Value" H 5500 1600 60  0001 C CNN "Link"
+	1    5500 1600
 	0    -1   -1   0   
 $EndComp
 $Comp
-L LED D102
+L LED-RESCUE-FieldDevice D102
 U 1 1 59CB7D69
-P 5800 2650
-F 0 "D102" H 5800 2750 50  0000 C CNN
-F 1 "LED" H 5800 2550 50  0000 C CNN
-F 2 "Diodes_SMD:D_0805" H 5800 2650 60  0001 C CNN
-F 3 "" H 5800 2650 60  0000 C CNN
-	1    5800 2650
+P 5800 1600
+F 0 "D102" H 5800 1700 50  0000 C CNN
+F 1 "Rx" H 5800 1500 50  0000 C CNN
+F 2 "Diodes_SMD:D_0805" H 5800 1600 60  0001 C CNN
+F 3 "" H 5800 1600 60  0000 C CNN
+	1    5800 1600
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	5500 2450 5500 2000
-Connection ~ 5500 2000
-Wire Wire Line
-	5800 2450 5800 2100
-Connection ~ 5800 2100
-Wire Wire Line
-	5500 3500 5800 3500
-$Comp
-L GND #PWR07
-U 1 1 59CB7FF0
-P 5650 3750
-F 0 "#PWR07" H 5650 3500 50  0001 C CNN
-F 1 "GND" H 5650 3600 50  0000 C CNN
-F 2 "" H 5650 3750 50  0000 C CNN
-F 3 "" H 5650 3750 50  0000 C CNN
-	1    5650 3750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5650 3750 5650 3500
-Connection ~ 5650 3500
 $Comp
 L R R112
 U 1 1 59CB849B
-P 5500 3150
-F 0 "R112" V 5580 3150 50  0000 C CNN
-F 1 "680Ω" V 5500 3150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 5430 3150 50  0001 C CNN
-F 3 "" H 5500 3150 50  0000 C CNN
-	1    5500 3150
+P 5500 1050
+F 0 "R112" V 5580 1050 50  0000 C CNN
+F 1 "680Ω" V 5500 1050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5430 1050 50  0001 C CNN
+F 3 "" H 5500 1050 50  0000 C CNN
+	1    5500 1050
 	-1   0    0    1   
 $EndComp
 $Comp
 L R R113
 U 1 1 59CB8725
-P 5800 3150
-F 0 "R113" V 5880 3150 50  0000 C CNN
-F 1 "680Ω" V 5800 3150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 5730 3150 50  0001 C CNN
-F 3 "" H 5800 3150 50  0000 C CNN
-	1    5800 3150
+P 5800 1050
+F 0 "R113" V 5880 1050 50  0000 C CNN
+F 1 "680Ω" V 5800 1050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 5730 1050 50  0001 C CNN
+F 3 "" H 5800 1050 50  0000 C CNN
+	1    5800 1050
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	5500 2850 5500 3000
+	5500 750  5500 900 
 Wire Wire Line
-	5500 3300 5500 3500
+	5500 1200 5500 1400
 Wire Wire Line
-	5800 3500 5800 3300
+	5800 1400 5800 1200
 Wire Wire Line
-	5800 3000 5800 2850
+	5800 900  5800 750 
+Wire Wire Line
+	5500 1800 5500 2000
+Connection ~ 5500 2000
+Wire Wire Line
+	5800 1800 5800 2100
+Connection ~ 5800 2100
+Wire Wire Line
+	5500 750  6200 750 
+Connection ~ 5800 750 
+Text Label 6200 750  2    60   ~ 0
+3V3
+Wire Wire Line
+	9200 3700 8750 3700
+Text Label 8750 3700 0    60   ~ 0
+MISO
+Wire Wire Line
+	3550 1300 4450 1300
+Text Label 4450 1300 2    60   ~ 0
+MISO
 $EndSCHEMATC
