@@ -50,10 +50,10 @@ void setup()
 
   SPI.begin();
 
-  //#ifdef _EA_DOGS_104
+   delay(2);
   initDispl();
-  //#endif
-  
+  SetPosition(LINE2);
+  SetContrast(0x1F);
 
 }
 
@@ -98,16 +98,10 @@ void loop()
   char message[100];
   uint8_t payload[100];
 
-  #ifdef _EA_DOGS_104
-  // ClrDisplay();
   initDispl();
-  ClrDisplay();
+  // ClrDisplay();
   SetPosition(LINE2);
   SetContrast(0x1F);
-  #else
-  initDisplay();
-  #endif
-  
   
   delay(2);
   sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
@@ -161,13 +155,7 @@ void loop()
   delay(5000);
 
 }
-
-
-#ifdef _EA_DOGS_104
-
 #define _EA_EXECUTION_TIME_WAIT 1
-
-
 //--- module global varibles ---
 
 
@@ -206,7 +194,7 @@ Wait(100);
   WriteIns(0x72); //Set contrast (DB3-DB0=C3-C0)
   WriteIns(0x38); //8-Bit data length extension Bit RE=0; IS=0
 
-  // ClrDisplay();
+  ClrDisplay();
   // DisplayOnOff(DISPLAY_ON | CURSOR_OFF | BLINK_OFF);
   DisplayOnOff(DISPLAY_ON );
 }
@@ -374,46 +362,3 @@ void writeMessage(char *value){
 }
 
 
-#endif
-
-#ifdef _EA_DOGS_108
-
-void initDisplay(){
-  nss.printf("Init display");
-
-  unsigned int init[9] = {0x31, 0x14, 0x55, 0x6d, 0x74, 0x30, 0x0c, 0x01, 0x06};
-
-  SPI.beginTransaction(SPISettings(_EA_DOGS_CLK, LSBFIRST, SPI_MODE3));
-  // take the SS pin low to select the chip:
-  digitalWrite(register_select, LOW);
-  //delayMicroseconds(10);
-  digitalWrite(display_select, LOW);
-  for( int i=0; i<9; i++){
-     SPI.transfer( init[i] );
-     delayMicroseconds(50);
-  }
-  // take the SS pin high to de-select the chip:
-  digitalWrite(display_select, HIGH);
-  // delayMicroseconds(10);
-  digitalWrite(register_select, HIGH);
-  SPI.endTransaction();
-}
-
-void writeMessage(char* value){
-    nss.printf("  >>> writing message %s \n", value);
-
-  SPI.beginTransaction(SPISettings(_EA_DOGS_CLK, LSBFIRST, SPI_MODE3));
-  // take the SS pin low to select the chip:
-  digitalWrite(display_select, LOW);
-  //  send in the address and value via SPI:
-  for(int i=0; value[i] != 0; i++){
-     SPI.transfer(value[i]);
-     delayMicroseconds(50);
-  }
-  // take the SS pin high to de-select the chip:
-  digitalWrite(display_select, HIGH);
-  // release control of the SPI port
-  SPI.endTransaction();
-}
-
-#endif
