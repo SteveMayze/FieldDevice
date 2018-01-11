@@ -1,5 +1,6 @@
 //-----------------------------------------------------
 //File: lcd_spi.h
+// Adapted From Electonic Assembly Application Notes
 //Auth: ELECTRONIC ASSEMBLY JM
 //DATE: 08-07-2012
 //-----------------------------------------------------
@@ -7,16 +8,18 @@
 #define LCDSPI_H
 
 
+#define _EA_REGISTER_SELECT 15
+#define _EA_DISPLAY_RESET 15
+#define _EA_DISPLAY_SELECT 10
+
+
 //--- Standard definitions for LCD ---
+
+#define _EA_DOGS_CLK 1000000
+
 #define LCD_HOME_L1	0x80
-#define LINE1	0
-/*
-//HD44780
-#define LINE2	LINE1+0x40
-#define LINE3	LINE1+0x14
-#define	LINE4 	LINE2+0x14
-*/
-//KS0073/SSD1803(A)
+#define LINE1	0x00
+
 #define LINE2	LINE1+0x20
 #define LINE3	LINE1+0x40
 #define	LINE4 	LINE1+0x60
@@ -40,23 +43,22 @@
 void initDispl(void);
 
 
-void WriteChar		(char character);
-void WriteString	(char *string);
-void SetPosition		(char pos);
-void DisplayOnOff	(char data);
-void DefineCharacter(unsigned char postion, unsigned char *data);
+void WriteChar		(uint8_t character);
+void WriteString	(uint8_t *string);
+void SetPosition		(uint8_t pos);
+void DisplayOnOff	(uint8_t data);
+void DefineCharacter(uint8_t postion, uint8_t *data);
 void ClrDisplay		(void);
-void SetContrast	(unsigned char contr);
-void SetView		(unsigned char view);
-void SetROM			(unsigned char rom);
+void SetContrast	(uint8_t contr);
+void SetView		(uint8_t view);
+void SetROM			(uint8_t rom);
 #define GETCURSORADDR()	CheckBusy()
 
 
 //Normally you don't need these functions outside this module
-static void WriteIns		(char ins);
-static void WriteData		(char data);
+static void WriteIns		(uint8_t ins);
+static void WriteData		(uint8_t data);
 
 unsigned char CheckBusy		(void);
-// static void   SPI_put 		(unsigned char byte);
 
 #endif
