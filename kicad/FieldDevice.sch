@@ -235,11 +235,11 @@ The minimal configuration \nfor the XBEE is Vcc, GND, \nDin and Dout
 Text Label 1200 6200 0    60   ~ 0
 OverTemp
 $Sheet
-S 9250 5080 1500 1070
+S 9250 5730 1400 620 
 U 593ED75C
 F0 "Analog_Sensors" 60
 F1 "AnalogSensors.sch" 60
-F2 "ANLG_1" I L 9250 5300 60 
+F2 "ANLG_1" I L 9250 5950 60 
 $EndSheet
 Wire Wire Line
 	4150 2050 4150 1900
@@ -264,11 +264,17 @@ Wire Wire Line
 Wire Wire Line
 	1300 1700 1550 1700
 Wire Wire Line
-	5300 2000 6100 2000
+	5300 2000 5500 2000
 Wire Wire Line
-	5300 2100 6100 2100
+	5500 2000 6100 2000
 Wire Wire Line
-	4000 5800 5300 5800
+	5300 2100 5800 2100
+Wire Wire Line
+	5800 2100 6100 2100
+Wire Wire Line
+	4000 5800 5000 5800
+Wire Wire Line
+	5000 5800 5300 5800
 Wire Wire Line
 	2650 6400 2400 6400
 Wire Wire Line
@@ -278,11 +284,17 @@ Wire Wire Line
 Wire Wire Line
 	2650 6000 2100 6000
 Wire Wire Line
-	1200 6200 2650 6200
+	1200 6200 1750 6200
+Wire Wire Line
+	1750 6200 2650 6200
 Wire Wire Line
 	4200 6900 4200 7050
 Wire Wire Line
-	4200 7050 4700 7050
+	4200 7050 4300 7050
+Wire Wire Line
+	4300 7050 4450 7050
+Wire Wire Line
+	4450 7050 4700 7050
 Wire Wire Line
 	4700 7050 4700 6900
 Wire Wire Line
@@ -304,7 +316,9 @@ Wire Wire Line
 Wire Wire Line
 	4700 6000 4700 6600
 Wire Wire Line
-	3550 2300 4900 2300
+	3550 2300 4600 2300
+Wire Wire Line
+	4600 2300 4900 2300
 Wire Wire Line
 	7200 1100 7200 1200
 Wire Wire Line
@@ -312,13 +326,13 @@ Wire Wire Line
 Wire Wire Line
 	650  1500 1550 1500
 Wire Wire Line
-	9250 5300 8650 5300
-Text Label 8650 5300 0    60   ~ 0
+	9250 5950 8650 5950
+Text Label 8650 5950 0    60   ~ 0
 ANLG_1
 Text Label 650  2500 0    60   ~ 0
 ANLG_1
 $Sheet
-S 9200 3200 1450 1500
+S 9200 3200 1450 2050
 U 593F4F7E
 F0 "Display" 60
 F1 "Display.sch" 60
@@ -327,28 +341,31 @@ F3 "RS" I L 9200 4150 60
 F4 "MOSI" I L 9200 3550 60 
 F5 "SPI_SCK" I L 9200 3850 60 
 F6 "CS" I L 9200 4000 60 
-F7 "Display" I L 9200 4400 60 
-F8 "MISO" I L 9200 3700 60 
+F7 "MISO" I L 9200 3700 60 
+F8 "~RESET" I L 9200 4750 60 
+F9 "BACKLIGHT" I L 9200 5000 60 
+F10 "~DISPLAY" I L 9200 4400 60 
+F11 "~ENABLE" I L 9200 4600 60 
 $EndSheet
 Wire Wire Line
-	9200 3350 8750 3350
+	9200 3350 8550 3350
 Wire Wire Line
-	9200 3550 8750 3550
+	9200 3550 8550 3550
 Wire Wire Line
-	9200 3850 8750 3850
+	9200 3850 8550 3850
 Wire Wire Line
-	9200 4150 8750 4150
+	9200 4150 8550 4150
 Text Label 4450 2500 2    60   ~ 0
 REG_SEL
 Wire Wire Line
-	9200 4000 8750 4000
-Text Label 8750 4000 0    60   ~ 0
+	9200 4000 8550 4000
+Text Label 8550 4000 0    60   ~ 0
 CS
-Text Label 8750 3850 0    60   ~ 0
+Text Label 8550 3850 0    60   ~ 0
 SPI_CLK
-Text Label 8750 3550 0    60   ~ 0
+Text Label 8550 3550 0    60   ~ 0
 MOSI
-Text Label 8750 3350 0    60   ~ 0
+Text Label 8550 3350 0    60   ~ 0
 3V3
 Text Label 650  1300 0    60   ~ 0
 MOSI
@@ -411,13 +428,15 @@ Wire Wire Line
 Wire Wire Line
 	4000 2500 4450 2500
 Wire Wire Line
-	9200 4400 8750 4400
-Text Label 8750 4400 0    60   ~ 0
+	9200 4400 8550 4400
+Text Label 8550 4400 0    60   ~ 0
 Display
-Text Label 8750 4150 0    60   ~ 0
+Text Label 8550 4150 0    60   ~ 0
 REG_SEL
 Wire Wire Line
-	650  2300 1550 2300
+	650  2300 1350 2300
+Wire Wire Line
+	1350 2300 1550 2300
 $Comp
 L R R103
 U 1 1 59402EDE
@@ -505,7 +524,7 @@ $EndComp
 Wire Wire Line
 	5000 6200 5000 6300
 Connection ~ 5000 5800
-Text Notes 8400 5500 0    60   ~ 0
+Text Notes 8400 6150 0    60   ~ 0
 Pin 14 on Teency\ni.e. A0
 $Comp
 L LED-RESCUE-FieldDevice D101
@@ -567,16 +586,30 @@ Wire Wire Line
 	5800 1800 5800 2100
 Connection ~ 5800 2100
 Wire Wire Line
-	5500 750  6200 750 
+	5500 750  5800 750 
+Wire Wire Line
+	5800 750  6200 750 
 Connection ~ 5800 750 
 Text Label 6200 750  2    60   ~ 0
 3V3
 Wire Wire Line
-	9200 3700 8750 3700
-Text Label 8750 3700 0    60   ~ 0
+	9200 3700 8550 3700
+Text Label 8550 3700 0    60   ~ 0
 MISO
 Wire Wire Line
 	3550 1300 4450 1300
 Text Label 4450 1300 2    60   ~ 0
 MISO
+Wire Wire Line
+	9200 4750 8550 4750
+Wire Wire Line
+	9200 5000 8550 5000
+Text Label 8550 4750 0    60   ~ 0
+3V3
+Text Label 8550 5000 0    60   ~ 0
+3V3
+Wire Wire Line
+	9200 4600 8550 4600
+Text Label 8550 4600 0    60   ~ 0
+~DISP_ENABLE
 $EndSCHEMATC
