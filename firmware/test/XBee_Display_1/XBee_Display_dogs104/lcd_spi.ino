@@ -17,7 +17,7 @@
 //use these macros to slow the communication down
 #define WAITST 2
 
-#define Wait(x) delayMicroseconds( x )
+#define Wait(x) delay( x )
 #define SPI_put(x) SPI.transfer( x )
 
 //-----------------------------------------------------
@@ -29,14 +29,15 @@ void initDispl(void)
   // unsigned char i;
 
   //Perform a display reset
-digitalWrite(_EA_DISPLAY_RESET, HIGH);
-Wait(5);
-digitalWrite(_EA_DISPLAY_RESET, LOW);
-Wait(100);
-digitalWrite(_EA_DISPLAY_RESET, HIGH);
-Wait(100);
+  digitalWrite(_EA_DISPLAY_RESET, HIGH);
+  Wait(100);
+  digitalWrite(_EA_DISPLAY_RESET, LOW);
+  Wait(5);
+  digitalWrite(_EA_DISPLAY_RESET, HIGH);
+  Wait(100);
+  
   //init Display
-  DisplayOnOff(DISPLAY_OFF);
+  WriteIns(0x01); // Dummy to get some time
   WriteIns(0x3A); //8-Bit data length extension Bit RE=1; REV=0
   WriteIns(0x09); //4 line display
   WriteIns(0x06); //Bottom view

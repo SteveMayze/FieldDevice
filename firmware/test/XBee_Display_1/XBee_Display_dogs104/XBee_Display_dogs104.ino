@@ -17,8 +17,8 @@
 #define ADC_VOLTAGE 0.0117302053
 #define nss Serial
 
-const int register_select = 15;
-const int display_select = 10;
+const int register_select = _EA_REGISTER_SELECT;
+const int display_select = _EA_DISPLAY_SELECT;
 
 
 double voltage_level = 0;
