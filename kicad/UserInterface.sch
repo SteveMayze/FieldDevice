@@ -36,7 +36,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 6
+Sheet 3 5
 Title ""
 Date ""
 Rev ""
@@ -46,141 +46,135 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 5450 2850 0    60   Input ~ 0
+Text HLabel 6500 3000 0    60   Input ~ 0
 RS
-Text HLabel 5000 1350 0    60   Input ~ 0
+Text HLabel 6850 1150 0    60   Input ~ 0
 3V3
-Text HLabel 5450 2450 0    60   Input ~ 0
-MOSI
-Text HLabel 5450 2650 0    60   Input ~ 0
+Text HLabel 6500 2400 0    60   Input ~ 0
+SPI_MOSI
+Text HLabel 6500 2600 0    60   Input ~ 0
 SPI_SCK
-Text HLabel 5450 2750 0    60   Input ~ 0
-CS
+Text HLabel 6500 2700 0    60   Input ~ 0
+SPI_CS
 $Comp
 L SW_PUSH SW301
 U 1 1 593FDBDD
-P 8400 2800
-F 0 "SW301" H 8550 2910 50  0000 C CNN
-F 1 "SW_PUSH" H 8400 2720 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 8400 2800 60  0001 C CNN
-F 3 "" H 8400 2800 60  0000 C CNN
-	1    8400 2800
+P 5700 4500
+F 0 "SW301" H 5850 4610 50  0000 C CNN
+F 1 "SW_PUSH" H 5700 4420 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5700 4500 60  0001 C CNN
+F 3 "" H 5700 4500 60  0000 C CNN
+	1    5700 4500
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR09
+L GND #PWR07
 U 1 1 593FDBE4
-P 8800 3700
-F 0 "#PWR09" H 8800 3450 50  0001 C CNN
-F 1 "GND" H 8800 3550 50  0000 C CNN
-F 2 "" H 8800 3700 50  0000 C CNN
-F 3 "" H 8800 3700 50  0000 C CNN
-	1    8800 3700
+P 6100 5400
+F 0 "#PWR07" H 6100 5150 50  0001 C CNN
+F 1 "GND" H 6100 5250 50  0000 C CNN
+F 2 "" H 6100 5400 50  0000 C CNN
+F 3 "" H 6100 5400 50  0000 C CNN
+	1    6100 5400
 	1    0    0    -1  
 $EndComp
-Text HLabel 7750 2800 0    60   Input ~ 0
+Text HLabel 5050 4500 0    60   Input ~ 0
 ~DISPLAY
 $Comp
 L C C303
 U 1 1 59402950
-P 8000 3100
-F 0 "C303" H 8025 3200 50  0000 L CNN
-F 1 "0.1μF" H 8025 3000 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 8038 2950 30  0001 C CNN
-F 3 "" H 8000 3100 60  0000 C CNN
-	1    8000 3100
+P 5300 4800
+F 0 "C303" H 5325 4900 50  0000 L CNN
+F 1 "0.1μF" H 5325 4700 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5338 4650 30  0001 C CNN
+F 3 "" H 5300 4800 60  0000 C CNN
+	1    5300 4800
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8700 2800 8800 2800
+	6000 4500 6100 4500
 Wire Wire Line
-	8800 2800 8800 3350
+	6100 4500 6100 5400
 Wire Wire Line
-	8800 3350 8800 3700
+	5050 4500 5400 4500
 Wire Wire Line
-	7750 2800 8000 2800
+	5300 4950 5300 5050
 Wire Wire Line
-	8000 2800 8100 2800
+	5300 5050 6100 5050
+Connection ~ 6100 5050
 Wire Wire Line
-	8000 3250 8000 3350
-Wire Wire Line
-	8000 3350 8800 3350
-Connection ~ 8800 3350
-Wire Wire Line
-	8000 2950 8000 2800
-Connection ~ 8000 2800
-Wire Wire Line
-	5700 2350 5450 2350
-Wire Wire Line
-	5700 2450 5450 2450
-Wire Wire Line
-	5700 2650 5450 2650
-Wire Wire Line
-	5700 2750 5450 2750
-Wire Wire Line
-	5700 2850 5450 2850
-Wire Wire Line
-	5700 2950 5450 2950
-Wire Wire Line
-	5400 3250 5400 3400
+	5300 4650 5300 4500
+Connection ~ 5300 4500
 $Comp
-L GND #PWR010
+L GND #PWR08
 U 1 1 598B3757
-P 5400 3400
-F 0 "#PWR010" H 5400 3150 50  0001 C CNN
-F 1 "GND" H 5400 3250 50  0000 C CNN
-F 2 "" H 5400 3400 60  0000 C CNN
-F 3 "" H 5400 3400 60  0000 C CNN
-	1    5400 3400
+P 7300 3700
+F 0 "#PWR08" H 7300 3450 50  0001 C CNN
+F 1 "GND" H 7300 3550 50  0000 C CNN
+F 2 "" H 7300 3700 60  0000 C CNN
+F 3 "" H 7300 3700 60  0000 C CNN
+	1    7300 3700
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5700 2550 5450 2550
-Text HLabel 5450 2550 0    60   Input ~ 0
-MISO
-$Comp
-L Conn_01x10_Female P301
-U 1 1 5A6CD6E7
-P 5900 2750
-F 0 "P301" H 5900 3250 50  0000 C CNN
-F 1 "Conn_01x10_Female" H 5900 2150 50  0000 C CNN
-F 2 "" H 5900 2750 50  0001 C CNN
-F 3 "" H 5900 2750 50  0001 C CNN
-	1    5900 2750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5700 3250 5400 3250
-Text HLabel 5450 2950 0    60   Input ~ 0
+Text HLabel 6500 2500 0    60   Input ~ 0
+SPI_MISO
+Text HLabel 6500 3100 0    60   Input ~ 0
 ~RESET
-Wire Wire Line
-	5700 3050 5450 3050
-Text HLabel 5450 3050 0    60   Input ~ 0
+Text HLabel 6500 3200 0    60   Input ~ 0
 BACKLIGHT
-NoConn ~ 5700 3150
 Wire Wire Line
-	5150 1700 5000 1700
+	7000 1500 6850 1500
 Wire Wire Line
-	5450 1500 5450 1350
+	7300 1300 7300 1150
 Wire Wire Line
-	5450 1350 5000 1350
-Text HLabel 5000 1700 0    60   Input ~ 0
+	7300 1150 6850 1150
+Text HLabel 6850 1500 0    60   Input ~ 0
 ~ENABLE
-Wire Wire Line
-	5450 2350 5450 1900
-Text Notes 7550 2600 0    60   ~ 0
+Text Notes 4850 4300 0    60   ~ 0
 The MCU needs to internally \nset the Pull Up Resistor
+Wire Wire Line
+	7300 1700 7300 2100
 $Comp
-L Q_PMOS_GDS Q?
-U 1 1 5A6D0129
-P 5350 1700
-F 0 "Q?" H 5550 1750 50  0000 L CNN
-F 1 "Q_PMOS_GDS" H 5550 1650 50  0000 L CNN
-F 2 "" H 5550 1800 50  0001 C CNN
-F 3 "" H 5350 1700 50  0001 C CNN
-	1    5350 1700
+L EA_DISPLAY LCD301
+U 1 1 5A737FCF
+P 7300 2800
+F 0 "LCD301" H 7650 2150 60  0000 C CNN
+F 1 "EA_DISPLAY" H 7400 2800 60  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x10_Pitch2.54mm" H 6900 2700 60  0001 C CNN
+F 3 "" H 6900 2700 60  0001 C CNN
+	1    7300 2800
 	1    0    0    -1  
 $EndComp
-Text Notes 2750 2850 0    60   ~ 0
-Verify the behaviour of the \nNMOS.\nWill this be problematic to keep the REST high\nbut removing power?
+Wire Wire Line
+	7300 3550 7300 3700
+Text Notes 8000 3300 0    60   ~ 0
+The EA Display is a DOGS or DOGM LCD \nconnected through the adapter. The \nphysical connection could be pin header.
+Wire Wire Line
+	6500 2400 6600 2400
+Wire Wire Line
+	6500 2500 6600 2500
+Wire Wire Line
+	6500 2600 6600 2600
+Wire Wire Line
+	6500 2700 6600 2700
+Wire Wire Line
+	6500 3000 6600 3000
+Wire Wire Line
+	6500 3100 6600 3100
+Wire Wire Line
+	6500 3200 6600 3200
+$Comp
+L Q_PMOS_GSD Q301
+U 1 1 5A737F93
+P 7200 1500
+F 0 "Q301" H 7400 1550 50  0000 L CNN
+F 1 "Q_PMOS_GSD" H 7400 1450 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 7400 1600 50  0001 C CNN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/cd/a8/e2/81/10/ea/4b/a7/DM00091036.pdf/files/DM00091036.pdf/jcr:content/translations/en.DM00091036.pdf" H 7200 1500 50  0001 C CNN
+F 4 "STR1P2UH7" H 7200 1500 60  0001 C CNN "MPN"
+F 5 "Value" H 7200 1500 60  0001 C CNN "ConradPN"
+F 6 "Value" H 7200 1500 60  0001 C CNN "Label"
+	1    7200 1500
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
