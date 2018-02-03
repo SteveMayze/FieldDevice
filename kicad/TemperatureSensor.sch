@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:FieldDevice-rescue
 LIBS:fieldDevice_symbols
 LIBS:ce_header
 LIBS:power
@@ -218,4 +217,10 @@ Text HLabel 3450 3100 0    60   Input ~ 0
 I2C_SCK
 Text Notes 3700 5150 0    60   ~ 0
 The purpose of this temperature unit\nis to measure and report the temperature\nof the Field Device board. This is not \nintended as any type of environmental\nsensor other than device running conditions.\n
+Text Label 5300 3500 0    60   ~ 0
+A2
+Text Label 5300 3300 0    60   ~ 0
+A1
+Text Label 5300 3100 0    60   ~ 0
+A0
 $EndSCHEMATC

@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:FieldDevice-rescue
 LIBS:fieldDevice_symbols
 LIBS:ce_header
 LIBS:power

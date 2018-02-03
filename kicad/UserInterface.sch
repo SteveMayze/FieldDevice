@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:FieldDevice-rescue
 LIBS:fieldDevice_symbols
 LIBS:ce_header
 LIBS:power
@@ -134,17 +133,6 @@ Text Notes 4850 4300 0    60   ~ 0
 The MCU needs to internally \nset the Pull Up Resistor
 Wire Wire Line
 	7300 1700 7300 2100
-$Comp
-L EA_DISPLAY LCD301
-U 1 1 5A737FCF
-P 7300 2800
-F 0 "LCD301" H 7650 2150 60  0000 C CNN
-F 1 "EA_DISPLAY" H 7400 2800 60  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x10_Pitch2.54mm" H 6900 2700 60  0001 C CNN
-F 3 "" H 6900 2700 60  0001 C CNN
-	1    7300 2800
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7300 3550 7300 3700
 Text Notes 8000 3300 0    60   ~ 0
@@ -175,6 +163,17 @@ F 4 "STR1P2UH7" H 7200 1500 60  0001 C CNN "MPN"
 F 5 "Value" H 7200 1500 60  0001 C CNN "ConradPN"
 F 6 "Value" H 7200 1500 60  0001 C CNN "Label"
 	1    7200 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L EA_DISPLAY LCD301
+U 1 1 5A74BD92
+P 7300 2800
+F 0 "LCD301" H 7650 2150 60  0000 C CNN
+F 1 "EA_DISPLAY" H 7400 2800 60  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x10_Pitch2.54mm" H 6900 2700 60  0001 C CNN
+F 3 "" H 6900 2700 60  0001 C CNN
+	1    7300 2800
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

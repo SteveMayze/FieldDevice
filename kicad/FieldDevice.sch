@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:FieldDevice-rescue
 LIBS:fieldDevice_symbols
 LIBS:ce_header
 LIBS:power
@@ -320,9 +319,7 @@ F 3 "" H 2200 1950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1750 2150 2200 2150
-Wire Wire Line
-	2200 2150 3150 2150
+	1750 2150 3150 2150
 Wire Wire Line
 	2200 2150 2200 2100
 Connection ~ 2200 2150
@@ -338,9 +335,7 @@ F 3 "" H 2750 1800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2350 2000 2750 2000
-Wire Wire Line
-	2750 2000 3150 2000
+	2350 2000 3150 2000
 Wire Wire Line
 	2750 2000 2750 1950
 Connection ~ 2750 2000
@@ -375,7 +370,6 @@ NoConn ~ 4950 1600
 NoConn ~ 4950 1750
 NoConn ~ 4950 1900
 NoConn ~ 4950 2050
-NoConn ~ 4950 2200
 NoConn ~ 3150 1700
 NoConn ~ 3150 1850
 NoConn ~ 3150 2300
@@ -410,4 +404,8 @@ Wire Wire Line
 	2750 1400 2650 1400
 Wire Wire Line
 	2200 1800 2150 1800
+Text Label 5100 2200 0    60   ~ 0
+BACKLIGHT
+Wire Wire Line
+	4950 2200 5100 2200
 $EndSCHEMATC
