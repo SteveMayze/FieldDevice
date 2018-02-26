@@ -22,6 +22,9 @@ const int display_select = _EA_DISPLAY_SELECT;
 
 
 double voltage_level = 0;
+double temperature = 0;
+double old_voltage = 0;
+double old_temp = 0;
 int msg_id = 1;
 
 XBee xbee = XBee();
@@ -71,9 +74,9 @@ void loop()
 
   int sample_level = analogRead( VOLTAGE_SENSE );
   voltage_level = (double)sample_level * ADC_VOLTAGE;
+  voltage_level = ((int)(voltage_level * 10))/10.0;
   
   
-  double temperature = 0;
   Wire.beginTransmission(0x48);
   Wire.write(0x00);
   Wire.endTransmission();
@@ -85,62 +88,67 @@ void loop()
     temp_exp = Wire.read();
     temp_mant = Wire.read();
     temperature = to_temp(temp_exp, temp_mant);
+    temperature = ((int)(temperature * 10))/10.0;
   }
 
   char message[100];
   uint8_t payload[100];
 
-  sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
-  nss.printf("Calling write message %s \n", message);
-  ClrDisplay();
-  SetPosition( LINE2 );
-  WriteString((uint8_t *) message );
+  if ( voltage_level != old_voltage ) {
+    sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
+    nss.printf("Calling write message %s \n", message);
+    ClrDisplay();
+    SetPosition( LINE2 );
+    WriteString((uint8_t *) message );
+    
+     nss.printf( "\n{\"id\": %d, \"voltage\": %2.1f, \"temperature\": %2.1f}\n",
+                  msg_id, voltage_level, temperature );
+     sprintf(message, "{\"id\": %d, \"voltage\": %f, \"temperature\": %f}\n",
+                   msg_id, voltage_level, temperature );
+     msg_id++;
   
-   nss.printf( "\n{\"id\": %d, \"voltage\": %2.1f, \"temperature\": %2.1f}\n",
-                msg_id, voltage_level, temperature );
-   sprintf(message, "{\"id\": %d, \"voltage\": %f, \"temperature\": %f}\n",
-                 msg_id, voltage_level, temperature );
-   msg_id++;
-
-   uint8_t payloadSize = 0;
-   for(payloadSize=0; payloadSize<100; payloadSize++){
-      if (message[payloadSize] == 0){
-        break;
+     uint8_t payloadSize = 0;
+     for(payloadSize=0; payloadSize<100; payloadSize++){
+        if (message[payloadSize] == 0){
+          break;
+        }
+        payload[payloadSize] = message[payloadSize];
+     }
+  
+     
+    ZBTxRequest tx_request = ZBTxRequest(target_addr, payload, payloadSize);
+        nss.println("");
+  
+    xbee.send(tx_request);
+  
+    if (xbee.readPacket(500)) {
+      // got a response!
+  
+      // should be a znet tx status              
+      if (xbee.getResponse().getApiId() == ZB_TX_STATUS_RESPONSE) {
+        xbee.getResponse().getTxStatusResponse(txStatus);
+  
+        // get the delivery status, the fifth byte
+        if (txStatus.getDeliveryStatus() == SUCCESS) {
+          // success.  time to celebrate
+          nss.println("Message sent OK.");
+        } else {
+          // the remote XBee did not receive our packet. is it powered on?
+          nss.printf("Message failed to send: %d", txStatus.getDeliveryStatus() );
+        }
       }
-      payload[payloadSize] = message[payloadSize];
-   }
-
-   
-  ZBTxRequest tx_request = ZBTxRequest(target_addr, payload, payloadSize);
-      nss.println("");
-
-  xbee.send(tx_request);
-
-  if (xbee.readPacket(500)) {
-    // got a response!
-
-    // should be a znet tx status              
-    if (xbee.getResponse().getApiId() == ZB_TX_STATUS_RESPONSE) {
-      xbee.getResponse().getTxStatusResponse(txStatus);
-
-      // get the delivery status, the fifth byte
-      if (txStatus.getDeliveryStatus() == SUCCESS) {
-        // success.  time to celebrate
-        nss.println("Message sent OK.");
-      } else {
-        // the remote XBee did not receive our packet. is it powered on?
-        nss.printf("Message failed to send: %d", txStatus.getDeliveryStatus() );
-      }
+    } else if (xbee.getResponse().isError()) {
+      nss.print("Error reading packet.  Error code: ");  
+      nss.println(xbee.getResponse().getErrorCode());
+    } else {
+      // local XBee did not provide a timely TX Status Response -- should not happen
+      nss.println("No response from the target");
     }
-  } else if (xbee.getResponse().isError()) {
-    nss.print("Error reading packet.  Error code: ");  
-    nss.println(xbee.getResponse().getErrorCode());
-  } else {
-    // local XBee did not provide a timely TX Status Response -- should not happen
-    nss.println("No response from the target");
+    old_voltage = voltage_level;
+    old_temp = temperature;
   }
 
-  delay(5000);
+  delay(10000);
 
 }
 
