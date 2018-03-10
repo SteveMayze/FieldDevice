@@ -7,10 +7,11 @@
 #ifndef LCDSPI_H
 #define LCDSPI_H
 
+#include "ce_header.h"
 
-#define _EA_REGISTER_SELECT 15
-#define _EA_DISPLAY_RESET 15
-#define _EA_DISPLAY_SELECT 10
+#define _EA_REGISTER_SELECT CE_AIO_1_GPIO_9
+#define _EA_DISPLAY_RESET CE_AIO_1_GPIO_9
+#define _EA_DISPLAY_SELECT CE_SPI_CS_GPIO_3
 
 
 //--- Standard definitions for LCD ---
