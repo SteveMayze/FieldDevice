@@ -12,8 +12,14 @@
 #include <SPI.h>
 #include <math.h>
 #include "lcd_spi.h"
+#include "ce_header.h"
 
-#define VOLTAGE_SENSE 14
+#define VOLTAGE_SENSE CE_AIO_0_GPIO_8
+#define OVERTEMP CE_AIO_2_GPIO_10 
+#define BTN_DISPLAY CE_AIO_3_GPIO_11
+#define DISPLAY_ENABLE _TEENSY_GPIO_2
+
+
 #define ADC_VOLTAGE 0.0117302053
 #define nss Serial
 
@@ -46,12 +52,14 @@ void setup()
   xbee.setSerial(Serial1);
   
   voltage_level = analogRead( VOLTAGE_SENSE );
-
   SPI.begin();
-
   initDispl();
 }
 
+/**
+ * Convert the exponent and mantissa components to a single double
+ * value
+ */
 double to_temp(char exponent, char mantissa){
     double result = 0.0f;
     double _exponent = 0.0f;
@@ -68,15 +76,16 @@ double to_temp(char exponent, char mantissa){
     return result;
 }
 
-
+/**
+ * Main Control Loop
+ */
 void loop()
 {
 
   int sample_level = analogRead( VOLTAGE_SENSE );
   voltage_level = (double)sample_level * ADC_VOLTAGE;
   voltage_level = ((int)(voltage_level * 10))/10.0;
-  
-  
+
   Wire.beginTransmission(0x48);
   Wire.write(0x00);
   Wire.endTransmission();
@@ -114,8 +123,7 @@ void loop()
         }
         payload[payloadSize] = message[payloadSize];
      }
-  
-     
+
     ZBTxRequest tx_request = ZBTxRequest(target_addr, payload, payloadSize);
         nss.println("");
   
@@ -132,9 +140,16 @@ void loop()
         if (txStatus.getDeliveryStatus() == SUCCESS) {
           // success.  time to celebrate
           nss.println("Message sent OK.");
+          SetPosition( LINE4 );
+          sprintf(message, "MSG OK");
+          WriteString((uint8_t *) message );
+
         } else {
           // the remote XBee did not receive our packet. is it powered on?
           nss.printf("Message failed to send: %d", txStatus.getDeliveryStatus() );
+          SetPosition( LINE4 );
+          sprintf(message, "MSG FAIL");
+          WriteString((uint8_t *) message );
         }
       }
     } else if (xbee.getResponse().isError()) {
