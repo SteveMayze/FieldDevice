@@ -21,7 +21,8 @@
 #define BATT_TEST _TEENSY_A6_GPIO_20
 
 
-#define ADC_VOLTAGE 0.0117302053
+#define ADC_12_VOLTAGE 0.0122189638318671
+#define ADC_6_VOLTAGE  0.0074639423076923
 #define nss Serial
 
 const int register_select = _EA_REGISTER_SELECT;
@@ -29,14 +30,18 @@ const int display_select = _EA_DISPLAY_SELECT;
 
 
 double voltage_level = 0;
+double batt_level = 0;
 double temperature = 0;
 double old_voltage = 0;
+double old_batt_level = 0;
 double old_temp = 0;
 int msg_id = 1;
 
 XBee xbee = XBee();
 
-XBeeAddress64 target_addr = XBeeAddress64(0x0013A200, 0x41629BCE);
+// XBEE_B XBeeAddress64 target_addr = XBeeAddress64(0x0013A200, 0x41629BCE);
+// XBEE_B2
+XBeeAddress64 target_addr = XBeeAddress64(0x0013A200, 0x415C0F82);
 ZBTxStatusResponse txStatus = ZBTxStatusResponse();
 
 void setup()
@@ -53,6 +58,7 @@ void setup()
   xbee.setSerial(Serial1);
   
   voltage_level = analogRead( VOLTAGE_SENSE );
+  batt_level = analogRead(BATT_TEST);
   SPI.begin();
   initDispl();
 }
@@ -84,9 +90,17 @@ void loop()
 {
 
   int sample_level = analogRead( VOLTAGE_SENSE );
-  voltage_level = (double)sample_level * ADC_VOLTAGE;
+  voltage_level = (double)sample_level * ADC_12_VOLTAGE;
   voltage_level = ((int)(voltage_level * 10))/10.0;
 
+  // nss.printf( "\n >>> sample_level=%d, voltage_level=%f  \n", sample_level, voltage_level );
+
+  sample_level = analogRead(BATT_TEST);
+  batt_level = (double)sample_level * ADC_6_VOLTAGE;
+  batt_level = ((int)(batt_level * 10))/10.0;
+  
+  // nss.printf( "\n >>> batt sample_level=%d, batt_level=%f  \n", sample_level, batt_level );
+  
   Wire.beginTransmission(0x48);
   Wire.write(0x00);
   Wire.endTransmission();
@@ -94,7 +108,7 @@ void loop()
   Wire.requestFrom(0x48, 2);
   char temp_exp = 0;
   char temp_mant = 0;
-  if( 2<= Wire.available()){
+  if( 2 <= Wire.available()){
     temp_exp = Wire.read();
     temp_mant = Wire.read();
     temperature = to_temp(temp_exp, temp_mant);
@@ -104,17 +118,26 @@ void loop()
   char message[100];
   uint8_t payload[100];
 
-  if ( voltage_level != old_voltage ) {
+  if ( (voltage_level != old_voltage) || (batt_level != old_batt_level) ) {
     sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
-    nss.printf("Calling write message %s \n", message);
     ClrDisplay();
     SetPosition( LINE2 );
     WriteString((uint8_t *) message );
     
-     nss.printf( "\n{\"id\": %d, \"voltage\": %2.1f, \"temperature\": %2.1f}\n",
-                  msg_id, voltage_level, temperature );
-     sprintf(message, "{\"id\": %d, \"voltage\": %f, \"temperature\": %f}\n",
-                   msg_id, voltage_level, temperature );
+    sprintf(message, "bt %2.1fV", batt_level);
+    SetPosition( LINE3 );
+    WriteString((uint8_t *) message );
+    
+     nss.printf( "\n{\"id\": %d, \"voltage\": %2.1f, \"battery\": %2.1f, \"temperature\": %2.1f}\n",
+                  msg_id, voltage_level, batt_level, temperature );
+     // Watch the size of the message!
+     sprintf(message, "{\"id\": %d, \"voltage\": %f, \"bt\": %f, \"temp\": %f}\n",
+             msg_id, voltage_level, batt_level, temperature );
+             
+     // nss.printf( "\n{\"id\": %d, \"voltage\": %2.1f, \"temperature\": %2.1f}\n",
+     //             msg_id, voltage_level, temperature );
+     // sprintf(message, "{\"id\": %d, \"voltage\": %f, \"temperature\": %f}\n",
+     //         msg_id, voltage_level, temperature );
      msg_id++;
   
      uint8_t payloadSize = 0;
@@ -162,6 +185,7 @@ void loop()
     }
     old_voltage = voltage_level;
     old_temp = temperature;
+    old_batt_level = batt_level;
   }
 
   delay(10000);
