@@ -90,7 +90,7 @@ void sendPacket(double voltage, double battery, double temp ) {
   uint8_t payload[100];
   
   // Watch the size of the message!
-  sprintf((char*)payload, "{\"id\": %d, \"voltage\": %f, \"bt\": %f, \"temp\": %f}\n",
+  sprintf((char*)payload, "{\"id\": %d, \"voltage\": %f, \"batt\": %f, \"temp\": %f}\n",
   msg_id++, voltage, battery, temp );
   
   uint8_t payloadSize = 0;
@@ -253,9 +253,9 @@ void loop() {
   } else {
     // The measured voltages - System plus battery backup are verified to be
     // in the correct range. If lower than wanted, then send an event message
-    if ( (voltage_level < 11.0) || ( batt_level < 5.2 )) {
+    if ( (voltage_level < 11.0) || ( batt_level < 5.0 )) {
       panic = true;
-      if((panic_count % 3) == 0) { // Every 30 seconds
+      if((panic_count % 30) == 0) { // Every 5 minutes
         // Only send the event every 10x3=30 seconds. No point in flooding the
         // airwaves.
         sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
