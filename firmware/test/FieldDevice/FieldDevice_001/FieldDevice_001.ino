@@ -61,7 +61,7 @@ void setup()
   SPI.begin();
   initDispl();
 
-  panic_count = 0;
+  panic_count = 1;
   panic = false;
 }
 
@@ -211,8 +211,10 @@ double readVoltage( uint8_t vInPin, double coef ) {
   int sample_level = analogRead( vInPin );
   double voltage = (double)sample_level * coef;
   voltage = ((int)(voltage * 10))/10.0;
-  nss.print("Voltage: ");
-  nss.println(voltage, DEC);
+  
+  sprintf(message, "Reading:%d, Voltage:%2.1fV", sample_level, voltage);
+
+  nss.println(message);
   return voltage;
 }
 
@@ -270,7 +272,7 @@ void loop() {
       }
       panic_count++;
     } else{
-      panic_count = 0;
+      panic_count = 1;
       if( panic == true ){
         sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
         ClrDisplay();
