@@ -20,7 +20,7 @@
 #define BATT_TEST _TEENSY_A6_GPIO_20
 
 
-#define ADC_12_VOLTAGE 0.0122189638318671
+#define ADC_12_VOLTAGE 0.0152998776
 #define ADC_6_VOLTAGE  0.0074639423076923
 #define nss Serial
 
@@ -63,6 +63,14 @@ void setup()
 
   panic_count = 1;
   panic = false;
+
+  double temperature = readTemp();
+  double voltage_level = readVoltage(VOLTAGE_SENSE, ADC_12_VOLTAGE);
+  double batt_level = readVoltage(BATT_TEST, ADC_6_VOLTAGE);
+  ClrDisplay();
+  updateDisplay( voltage_level, batt_level, temperature);
+
+
 }
 
 /**
@@ -195,7 +203,7 @@ double readTemp(){
     temp_exp = Wire.read();
     temp_mant = Wire.read();
     temp = to_temp(temp_exp, temp_mant);
-    temp = ((int)(temp * 10))/10.0;
+    temp = round(temp * 10.0)/10.0;
   }
   nss.print("Temperature: ");
   nss.println(temp, DEC);
@@ -210,12 +218,25 @@ double readTemp(){
 double readVoltage( uint8_t vInPin, double coef ) {
   int sample_level = analogRead( vInPin );
   double voltage = (double)sample_level * coef;
-  voltage = ((int)(voltage * 10))/10.0;
-  
+  voltage = round(voltage * 10.0)/10.0;
+
   sprintf(message, "Reading:%d, Voltage:%2.1fV", sample_level, voltage);
 
   nss.println(message);
   return voltage;
+}
+
+void updateDisplay(double voltage_level, double batt_level, double temperature) {
+        // Only send the event every 10x3=30 seconds. No point in flooding the
+        // airwaves.
+        sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
+        // ClrDisplay();
+        SetPosition( LINE2 );
+        WriteString((uint8_t *) message );
+        
+        sprintf(message, "bt %2.1fV", batt_level);
+        SetPosition( LINE3 );
+        WriteString((uint8_t *) message );  
 }
 
 /**
@@ -240,16 +261,7 @@ void loop() {
   if ( received == true ) {
     // A request from Homebaset to send the current state.
     if( 0x44 == payload[0] ){
-
-      sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
-      ClrDisplay();
-      SetPosition( LINE2 );
-      WriteString((uint8_t *) message );
-      
-      sprintf(message, "bt %2.1fV", batt_level);
-      SetPosition( LINE3 );
-      WriteString((uint8_t *) message );
-      
+      // updateDisplay( voltage_level, batt_level, temperature);
       sendPacket(voltage_level,  batt_level, temperature );      
     }
   } else {
@@ -260,34 +272,20 @@ void loop() {
       if((panic_count % 30) == 0) { // Every 5 minutes
         // Only send the event every 10x3=30 seconds. No point in flooding the
         // airwaves.
-        sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
-        ClrDisplay();
-        SetPosition( LINE2 );
-        WriteString((uint8_t *) message );
-        
-        sprintf(message, "bt %2.1fV", batt_level);
-        SetPosition( LINE3 );
-        WriteString((uint8_t *) message );
+        // updateDisplay( voltage_level, batt_level, temperature);
         sendPacket(voltage_level,  batt_level, temperature );
       }
       panic_count++;
     } else{
       panic_count = 1;
       if( panic == true ){
-        sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
-        ClrDisplay();
-        SetPosition( LINE2 );
-        WriteString((uint8_t *) message );
-        
-        sprintf(message, "bt %2.1fV", batt_level);
-        SetPosition( LINE3 );
-        WriteString((uint8_t *) message );
+        // updateDisplay( voltage_level, batt_level, temperature);
         sendPacket(voltage_level,  batt_level, temperature );
         panic = false;        
       }
     }
   }
-        
+  updateDisplay( voltage_level, batt_level, temperature);    
   delay(10000);  
   payload[0] = 0x00;
   
