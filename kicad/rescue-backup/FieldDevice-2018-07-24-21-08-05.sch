@@ -1,6 +1,37 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:fieldDevice_symbols
+LIBS:ce_header
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
 LIBS:FieldDevice-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,7 +46,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L FieldDevice-rescue:CE_Header H101
+L CE_Header H101
 U 1 1 593460FA
 P 2550 1900
 F 0 "H101" H 3250 700 60  0000 C CNN
@@ -27,7 +58,7 @@ F 4 "Value" H 2550 1900 60  0001 C CNN "Link"
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:DIGI_XBEE H102
+L DIGI_XBEE H102
 U 1 1 59346B0D
 P 7200 2250
 F 0 "H102" H 7950 1350 60  0000 C CNN
@@ -38,7 +69,7 @@ F 3 "" H 6550 2050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR01
+L GND #PWR01
 U 1 1 59346BB1
 P 4150 2050
 F 0 "#PWR01" H 4150 1800 50  0001 C CNN
@@ -49,7 +80,7 @@ F 3 "" H 4150 2050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR02
+L GND #PWR02
 U 1 1 59346BE5
 P 1240 3100
 F 0 "#PWR02" H 1240 2850 50  0001 C CNN
@@ -60,7 +91,7 @@ F 3 "" H 1240 3100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR03
+L GND #PWR03
 U 1 1 59346C08
 P 7200 3350
 F 0 "#PWR03" H 7200 3100 50  0001 C CNN
@@ -79,7 +110,7 @@ RX
 Text Label 4450 1700 2    60   ~ 0
 TX
 $Comp
-L FieldDevice-rescue:R R109
+L R R109
 U 1 1 59346CE3
 P 3900 1700
 F 0 "R109" V 3980 1700 50  0000 C CNN
@@ -90,7 +121,7 @@ F 3 "" H 3900 1700 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L FieldDevice-rescue:R R101
+L R R101
 U 1 1 59346DB3
 P 1150 1700
 F 0 "R101" V 1230 1700 50  0000 C CNN
@@ -119,7 +150,7 @@ NoConn ~ 8300 2100
 NoConn ~ 8300 2000
 NoConn ~ 8300 1900
 $Comp
-L FieldDevice-rescue:DS7505 U101
+L DS7505 U101
 U 1 1 59347421
 P 3350 6100
 F 0 "U101" H 3700 5650 60  0000 C CNN
@@ -132,7 +163,7 @@ $EndComp
 Text Label 5300 5800 2    60   ~ 0
 3V3
 $Comp
-L FieldDevice-rescue:GND #PWR04
+L GND #PWR04
 U 1 1 59347521
 P 2400 6600
 F 0 "#PWR04" H 2400 6350 50  0001 C CNN
@@ -143,7 +174,7 @@ F 3 "" H 2400 6600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:R R104
+L R R104
 U 1 1 593475EC
 P 4200 6750
 F 0 "R104" V 4280 6750 50  0000 C CNN
@@ -154,7 +185,7 @@ F 3 "" H 4200 6750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:R R105
+L R R105
 U 1 1 59347631
 P 4450 6750
 F 0 "R105" V 4530 6750 50  0000 C CNN
@@ -165,7 +196,7 @@ F 3 "" H 4450 6750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:R R106
+L R R106
 U 1 1 5934765B
 P 4700 6750
 F 0 "R106" V 4780 6750 50  0000 C CNN
@@ -176,7 +207,7 @@ F 3 "" H 4700 6750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR05
+L GND #PWR05
 U 1 1 59347764
 P 4300 7150
 F 0 "#PWR05" H 4300 6900 50  0001 C CNN
@@ -234,11 +265,11 @@ Wire Wire Line
 Wire Wire Line
 	1300 1700 1550 1700
 Wire Wire Line
-	5300 2000 5500 2000
+	5300 2000 6100 2000
 Wire Wire Line
-	5300 2100 5800 2100
+	5300 2100 6100 2100
 Wire Wire Line
-	4000 5800 5000 5800
+	4000 5800 5300 5800
 Wire Wire Line
 	2650 6400 2400 6400
 Wire Wire Line
@@ -248,11 +279,11 @@ Wire Wire Line
 Wire Wire Line
 	2650 6000 2100 6000
 Wire Wire Line
-	1200 6200 1750 6200
+	1200 6200 2650 6200
 Wire Wire Line
 	4200 6900 4200 7050
 Wire Wire Line
-	4200 7050 4300 7050
+	4200 7050 4700 7050
 Wire Wire Line
 	4700 7050 4700 6900
 Wire Wire Line
@@ -274,7 +305,7 @@ Wire Wire Line
 Wire Wire Line
 	4700 6000 4700 6600
 Wire Wire Line
-	3550 2300 4600 2300
+	3550 2300 4900 2300
 Wire Wire Line
 	7200 1100 7200 1200
 Wire Wire Line
@@ -334,7 +365,7 @@ NoConn ~ 6100 2300
 Text Label 650  1500 0    60   ~ 0
 SPI_CLK
 $Comp
-L FieldDevice-rescue:R R107
+L R R107
 U 1 1 593FC2C1
 P 3850 2500
 F 0 "R107" V 3930 2500 50  0000 C CNN
@@ -345,7 +376,7 @@ F 3 "" H 3850 2500 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L FieldDevice-rescue:R R108
+L R R108
 U 1 1 593FC45D
 P 3850 2700
 F 0 "R108" V 3930 2700 50  0000 C CNN
@@ -356,7 +387,7 @@ F 3 "" H 3850 2700 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L FieldDevice-rescue:R R102
+L R R102
 U 1 1 593FC4FB
 P 1300 2700
 F 0 "R102" V 1380 2700 50  0000 C CNN
@@ -387,9 +418,9 @@ Display
 Text Label 6150 4500 0    60   ~ 0
 REG_SEL
 Wire Wire Line
-	650  2300 1350 2300
+	650  2300 1550 2300
 $Comp
-L FieldDevice-rescue:R R103
+L R R103
 U 1 1 59402EDE
 P 1350 2100
 F 0 "R103" V 1430 2100 50  0000 C CNN
@@ -409,7 +440,7 @@ Wire Wire Line
 Text Label 650  1900 0    60   ~ 0
 3V3
 $Comp
-L FieldDevice-rescue:R R110
+L R R110
 U 1 1 59403531
 P 4600 2050
 F 0 "R110" V 4680 2050 50  0000 C CNN
@@ -430,7 +461,7 @@ Text Label 4900 1800 2    60   ~ 0
 3V3
 NoConn ~ 1550 1100
 $Comp
-L FieldDevice-rescue:R R111
+L R R111
 U 1 1 595BD879
 P 1750 5500
 F 0 "R111" V 1830 5500 50  0000 C CNN
@@ -450,7 +481,7 @@ Text Label 1750 5150 0    60   ~ 0
 Wire Wire Line
 	5000 5800 5000 5900
 $Comp
-L FieldDevice-rescue:C C101
+L C C101
 U 1 1 595BE884
 P 5000 6050
 F 0 "C101" H 5025 6150 50  0000 L CNN
@@ -462,7 +493,7 @@ F 4 "Value" H 5000 6050 60  0001 C CNN "Link"
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR06
+L GND #PWR06
 U 1 1 595BE9B4
 P 5000 6300
 F 0 "#PWR06" H 5000 6050 50  0001 C CNN
@@ -478,7 +509,7 @@ Connection ~ 5000 5800
 Text Notes 5200 5450 0    60   ~ 0
 Pin 14 on Teency\ni.e. A0
 $Comp
-L FieldDevice-rescue:LED D101
+L LED D101
 U 1 1 59CB7CCC
 P 5500 2650
 F 0 "D101" H 5500 2750 50  0000 C CNN
@@ -489,7 +520,7 @@ F 3 "" H 5500 2650 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L FieldDevice-rescue:LED D102
+L LED D102
 U 1 1 59CB7D69
 P 5800 2650
 F 0 "D102" H 5800 2750 50  0000 C CNN
@@ -506,9 +537,9 @@ Wire Wire Line
 	5800 2450 5800 2100
 Connection ~ 5800 2100
 Wire Wire Line
-	5500 3500 5650 3500
+	5500 3500 5800 3500
 $Comp
-L FieldDevice-rescue:GND #PWR07
+L GND #PWR07
 U 1 1 59CB7FF0
 P 5650 3750
 F 0 "#PWR07" H 5650 3500 50  0001 C CNN
@@ -522,7 +553,7 @@ Wire Wire Line
 	5650 3750 5650 3500
 Connection ~ 5650 3500
 $Comp
-L FieldDevice-rescue:R R112
+L R R112
 U 1 1 59CB849B
 P 5500 3150
 F 0 "R112" V 5580 3150 50  0000 C CNN
@@ -533,7 +564,7 @@ F 3 "" H 5500 3150 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L FieldDevice-rescue:R R113
+L R R113
 U 1 1 59CB8725
 P 5800 3150
 F 0 "R113" V 5880 3150 50  0000 C CNN
@@ -551,22 +582,4 @@ Wire Wire Line
 	5800 3500 5800 3300
 Wire Wire Line
 	5800 3000 5800 2850
-Wire Wire Line
-	4450 7050 4700 7050
-Wire Wire Line
-	4300 7050 4450 7050
-Wire Wire Line
-	1350 2300 1550 2300
-Wire Wire Line
-	4600 2300 4900 2300
-Wire Wire Line
-	1750 6200 2650 6200
-Wire Wire Line
-	5000 5800 5300 5800
-Wire Wire Line
-	5500 2000 6100 2000
-Wire Wire Line
-	5800 2100 6100 2100
-Wire Wire Line
-	5650 3500 5800 3500
 $EndSCHEMATC

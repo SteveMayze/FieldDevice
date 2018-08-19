@@ -1,4 +1,4 @@
 (fp_lib_table
-  (lib (name CE_Header)(type KiCad)(uri "$(KIPRJMOD)\\lib\\CE_Header.pretty")(options "")(descr ""))
-  (lib (name FieldDevice_Footprints)(type KiCad)(uri "$(KIPRJMOD)\\lib\\FieldDevice_Footprints.pretty")(options "")(descr ""))
+  (lib (name FieldDevice_Footprints)(type KiCad)(uri "$(KIPRJMOD)/lib/FieldDevice_Footprints.pretty")(options "")(descr ""))
+  (lib (name DisplayAdapter_DOGS104_Footprints)(type KiCad)(uri D:/pcbs/DisplayAdapter_DOGS104/pcb/lib/DisplayAdapter_DOGS104_Footprints.pretty)(options "")(descr ""))
 )

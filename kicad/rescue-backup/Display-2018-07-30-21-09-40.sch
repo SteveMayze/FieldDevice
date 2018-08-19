@@ -1,6 +1,37 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:fieldDevice_symbols
+LIBS:ce_header
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
 LIBS:FieldDevice-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -25,7 +56,7 @@ SPI_SCK
 Text HLabel 5450 2750 0    60   Input ~ 0
 CS
 $Comp
-L FieldDevice-rescue:SW_PUSH SW301
+L SW_PUSH SW301
 U 1 1 593FDBDD
 P 8950 1500
 F 0 "SW301" H 9100 1610 50  0000 C CNN
@@ -36,7 +67,7 @@ F 3 "" H 8950 1500 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR010
+L GND #PWR010
 U 1 1 593FDBE4
 P 9450 2400
 F 0 "#PWR010" H 9450 2150 50  0001 C CNN
@@ -49,7 +80,7 @@ $EndComp
 Text HLabel 8150 1500 0    60   Input ~ 0
 Display
 $Comp
-L FieldDevice-rescue:C C303
+L C C303
 U 1 1 59402950
 P 8550 2050
 F 0 "C303" H 8575 2150 50  0000 L CNN
@@ -74,7 +105,7 @@ Wire Wire Line
 	8550 1900 8550 1500
 Connection ~ 8550 1500
 $Comp
-L FieldDevice-rescue:CONN_01X06 P301
+L CONN_01X06 P301
 U 1 1 598B33D0
 P 5900 2600
 F 0 "P301" H 5900 2950 50  0000 C CNN
@@ -99,7 +130,7 @@ Wire Wire Line
 Wire Wire Line
 	5400 2850 5400 3000
 $Comp
-L FieldDevice-rescue:GND #PWR011
+L GND #PWR011
 U 1 1 598B3757
 P 5400 3000
 F 0 "#PWR011" H 5400 2750 50  0001 C CNN

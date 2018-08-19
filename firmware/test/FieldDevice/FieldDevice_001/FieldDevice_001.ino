@@ -20,8 +20,8 @@
 #define BATT_TEST _TEENSY_A6_GPIO_20
 
 
-#define ADC_12_VOLTAGE 0.0153670277
-#define ADC_6_VOLTAGE  0.0074639423076923
+#define ADC_5_V_CAPACITY (100.0 / 27.0)  // 0.0153670277
+#define ADC_6_VOLTAGE  (8.59 / 614.0) // 0.0074639423076923
 #define nss Serial
 
 const int register_select = _EA_REGISTER_SELECT;
@@ -65,10 +65,10 @@ void setup()
   panic = false;
 
   double temperature = readTemp();
-  double voltage_level = readVoltage(VOLTAGE_SENSE, ADC_12_VOLTAGE);
-  double batt_level = readVoltage(BATT_TEST, ADC_6_VOLTAGE);
+  double capacity = readValue(VOLTAGE_SENSE, ADC_5_V_CAPACITY);
+  double batt_level = readValue(BATT_TEST, ADC_6_VOLTAGE);
   ClrDisplay();
-  updateDisplay( voltage_level, batt_level, temperature);
+  updateDisplay( capacity, batt_level, temperature);
 
 
 }
@@ -94,12 +94,12 @@ double to_temp(char exponent, char mantissa){
 }
 
 
-void sendPacket(double voltage, double battery, double temp ) {
+void sendPacket(double value, double battery, double temp ) {
   uint8_t payload[100];
   
   // Watch the size of the message!
-  sprintf((char*)payload, "{\"id\": %d, \"voltage\": %f, \"batt\": %f, \"temp\": %f}\n",
-  msg_id++, voltage, battery, temp );
+  sprintf((char*)payload, "{\"id\": %d, \"capacity\": %f, \"batt\": %f, \"temp\": %f}\n",
+  msg_id++, value, battery, temp );
   
   uint8_t payloadSize = 0;
   for(payloadSize=0; payloadSize<100; payloadSize++){
@@ -215,26 +215,26 @@ double readTemp(){
  * Returns the voltage as sensed on vInPin and based 
  * on the estimated coeficient.
  */
-double readVoltage( uint8_t vInPin, double coef ) {
+double readValue( uint8_t vInPin, double coef ) {
   int sample_level = analogRead( vInPin );
-  double voltage = (double)sample_level * coef;
-  voltage = round(voltage * 10.0)/10.0;
+  double value = (double)sample_level * coef;
+  value = round(value * 10.0)/10.0;
 
-  sprintf(message, "Reading:%d, Voltage:%2.1fV", sample_level, voltage);
+  sprintf(message, "Reading:%d, Value:%2.1f%%", sample_level, value);
 
   nss.println(message);
-  return voltage;
+  return value;
 }
 
 void updateDisplay(double voltage_level, double batt_level, double temperature) {
         // Only send the event every 10x3=30 seconds. No point in flooding the
         // airwaves.
-        sprintf(message, "%2.1fV %2.0f%cC", voltage_level, temperature, 0xF2);
+        sprintf(message, "%2.1f%% %2.0f%cC", voltage_level, temperature, 0xF2);
         // ClrDisplay();
         SetPosition( LINE2 );
         WriteString((uint8_t *) message );
         
-        sprintf(message, "bt %2.1fV", batt_level);
+        sprintf(message, "bt %2.1f%%", batt_level);
         SetPosition( LINE3 );
         WriteString((uint8_t *) message );  
 }
@@ -250,43 +250,43 @@ void loop() {
   
   uint8_t payload[100];
 
-  double voltage_level;
+  double capacity;
   double batt_level;
   double temperature;
   temperature = readTemp();
-  voltage_level = readVoltage(VOLTAGE_SENSE, ADC_12_VOLTAGE);
-  batt_level = readVoltage(BATT_TEST, ADC_6_VOLTAGE);
+  capacity = readValue(VOLTAGE_SENSE, ADC_5_V_CAPACITY);
+  batt_level = readValue(BATT_TEST, ADC_6_VOLTAGE);
 
   received = receivePacket(payload);
   if ( received == true ) {
     // A request from Homebaset to send the current state.
     if( 0x44 == payload[0] ){
       // updateDisplay( voltage_level, batt_level, temperature);
-      sendPacket(voltage_level,  batt_level, temperature );      
+      sendPacket(capacity,  batt_level, temperature );      
     }
   } else {
     // The measured voltages - System plus battery backup are verified to be
     // in the correct range. If lower than wanted, then send an event message
-    if ( (voltage_level < 11.0) || ( batt_level < 5.0 )) {
+    if ( (capacity < 11.0) || ( batt_level < 5.0 )) {
       panic = true;
       if((panic_count % 30) == 0) { // Every 5 minutes
         // Only send the event every 10x3=30 seconds. No point in flooding the
         // airwaves.
-        // updateDisplay( voltage_level, batt_level, temperature);
-        sendPacket(voltage_level,  batt_level, temperature );
+        // updateDisplay( capacity, batt_level, temperature);
+        sendPacket(capacity,  batt_level, temperature );
       }
       panic_count++;
     } else{
       panic_count = 1;
       if( panic == true ){
-        // updateDisplay( voltage_level, batt_level, temperature);
-        sendPacket(voltage_level,  batt_level, temperature );
+        // updateDisplay( capacity, batt_level, temperature);
+        sendPacket(capacity,  batt_level, temperature );
         panic = false;        
       }
     }
   }
-  updateDisplay( voltage_level, batt_level, temperature);    
-  delay(10000);  
+  updateDisplay( capacity, batt_level, temperature);    
+  delay(5000);  
   payload[0] = 0x00;
   
 

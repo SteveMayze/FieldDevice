@@ -1,6 +1,37 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 2
+LIBS:fieldDevice_symbols
+LIBS:ce_header
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
 LIBS:FieldDevice-cache
-EELAYER 26 0
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,7 +46,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L FieldDevice-rescue:R R201
+L R R201
 U 1 1 593EDD83
 P 3500 1850
 F 0 "R201" V 3580 1850 50  0000 C CNN
@@ -28,7 +59,7 @@ F 5 "Value" H 3500 1850 60  0001 C CNN "Link"
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:R R202
+L R R202
 U 1 1 593EDD8A
 P 3500 2550
 F 0 "R202" V 3580 2550 50  0000 C CNN
@@ -45,7 +76,7 @@ TEST_NEG_1
 Text Label 4450 1400 2    60   ~ 0
 TEST_POS_1
 $Comp
-L FieldDevice-rescue:D D201
+L D D201
 U 1 1 593EDD99
 P 2400 1650
 F 0 "D201" H 2400 1750 50  0000 C CNN
@@ -58,7 +89,7 @@ F 5 "https://www.digikey.de/products/de?keywords=1N4148WFL-G3-08GICT-ND" H 2400 
 	0    1    1    0   
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR08
+L GND #PWR08
 U 1 1 593EDDA0
 P 2400 1900
 F 0 "#PWR08" H 2400 1650 50  0001 C CNN
@@ -69,7 +100,7 @@ F 3 "" H 2400 1900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:THERMISTOR TH201
+L THERMISTOR TH201
 U 1 1 593EDDA6
 P 2900 1400
 F 0 "TH201" V 3000 1450 50  0000 C CNN
@@ -84,7 +115,7 @@ $EndComp
 Text Notes 5000 1450 0    50   ~ 0
 +12V Nominal\n(Allowing for up to 14V)
 $Comp
-L FieldDevice-rescue:C C201
+L C C201
 U 1 1 593EDDC1
 P 3000 2600
 F 0 "C201" H 3025 2700 50  0000 L CNN
@@ -95,7 +126,7 @@ F 3 "" H 3000 2600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:GND #PWR09
+L GND #PWR09
 U 1 1 593EDDCB
 P 3000 3500
 F 0 "#PWR09" H 3000 3250 50  0001 C CNN
@@ -123,7 +154,7 @@ Wire Wire Line
 Wire Wire Line
 	3000 2750 3000 3500
 $Comp
-L FieldDevice-rescue:CONN_01X01 P201
+L CONN_01X01 P201
 U 1 1 5940670D
 P 4800 1400
 F 0 "P201" H 4800 1500 50  0000 C CNN
@@ -134,7 +165,7 @@ F 3 "" H 4800 1400 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:CONN_01X01 P202
+L CONN_01X01 P202
 U 1 1 594067C4
 P 4800 3050
 F 0 "P202" H 4800 3150 50  0000 C CNN
@@ -145,7 +176,7 @@ F 3 "" H 4800 3050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FieldDevice-rescue:R R203
+L R R203
 U 1 1 595D4DB1
 P 2450 2250
 F 0 "R203" V 2530 2250 50  0000 C CNN

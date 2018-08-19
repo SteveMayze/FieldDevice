@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# FieldDevice-rescue:C
+# C
 #
-DEF FieldDevice-rescue:C C 0 10 N Y 1 F N
+DEF C C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
-F1 "FieldDevice-rescue:C" 25 -100 50 H V L CNN
+F1 "C" 25 -100 50 H V L CNN
 F2 "" 38 -150 30 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -23,11 +23,11 @@ X ~ 2 0 -150 110 U 40 40 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:CE_Header
+# CE_Header
 #
-DEF FieldDevice-rescue:CE_Header H 0 40 Y Y 1 F N
+DEF CE_Header H 0 40 Y Y 1 F N
 F0 "H" 700 -1200 60 H V C CNN
-F1 "FieldDevice-rescue:CE_Header" 0 1100 60 H V C CNN
+F1 "CE_Header" 0 1100 60 H V C CNN
 F2 "" -400 400 60 H V C CNN
 F3 "" -400 400 60 H V C CNN
 DRAW
@@ -51,11 +51,11 @@ X USART_Tx/GPIO_5 8 1000 200 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:CONN_01X01
+# CONN_01X01
 #
-DEF FieldDevice-rescue:CONN_01X01 P 0 40 Y N 1 F N
+DEF CONN_01X01 P 0 40 Y N 1 F N
 F0 "P" 0 100 50 H V C CNN
-F1 "FieldDevice-rescue:CONN_01X01" 100 0 50 V V C CNN
+F1 "CONN_01X01" 100 0 50 V V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -71,11 +71,11 @@ X P1 1 -200 0 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:CONN_01X06
+# CONN_01X06
 #
-DEF FieldDevice-rescue:CONN_01X06 P 0 40 Y N 1 F N
+DEF CONN_01X06 P 0 40 Y N 1 F N
 F0 "P" 0 350 50 H V C CNN
-F1 "FieldDevice-rescue:CONN_01X06" 100 0 50 V V C CNN
+F1 "CONN_01X06" 100 0 50 V V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -101,11 +101,11 @@ X P6 6 -200 -250 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:D
+# D
 #
-DEF FieldDevice-rescue:D D 0 40 N N 1 F N
+DEF D D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "FieldDevice-rescue:D" 0 -100 50 H V C CNN
+F1 "D" 0 -100 50 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -123,11 +123,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:DIGI_XBEE
+# DIGI_XBEE
 #
-DEF FieldDevice-rescue:DIGI_XBEE H 0 40 Y Y 1 F N
+DEF DIGI_XBEE H 0 40 Y Y 1 F N
 F0 "H" 750 -900 60 H V C CNN
-F1 "FieldDevice-rescue:DIGI_XBEE" -50 550 60 H V C CNN
+F1 "DIGI_XBEE" -50 550 60 H V C CNN
 F2 "" -650 -200 60 H V C CNN
 F3 "" -650 -200 60 H V C CNN
 DRAW
@@ -155,11 +155,11 @@ X ~DTR~/SLEEP_RQ/DIO8 9 -1100 -450 200 R 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:DS7505
+# DS7505
 #
-DEF FieldDevice-rescue:DS7505 U 0 40 Y Y 1 F N
+DEF DS7505 U 0 40 Y Y 1 F N
 F0 "U" 350 -450 60 H V C CNN
-F1 "FieldDevice-rescue:DS7505" 0 350 60 H V C CNN
+F1 "DS7505" 0 350 60 H V C CNN
 F2 "" 0 -200 60 H V C CNN
 F3 "" 0 -200 60 H V C CNN
 DRAW
@@ -175,11 +175,11 @@ X VDD 8 650 300 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:GND
+# GND
 #
-DEF FieldDevice-rescue:GND #PWR 0 0 Y Y 1 F P
+DEF GND #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "FieldDevice-rescue:GND" 0 -150 50 H V C CNN
+F1 "GND" 0 -150 50 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -188,11 +188,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:LED
+# LED
 #
-DEF FieldDevice-rescue:LED D 0 40 Y N 1 F N
+DEF LED D 0 40 Y N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "FieldDevice-rescue:LED" 0 -100 50 H V C CNN
+F1 "LED" 0 -100 50 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -214,11 +214,11 @@ X A 2 200 0 150 L 40 40 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:R
+# R
 #
-DEF FieldDevice-rescue:R R 0 0 N Y 1 F N
+DEF R R 0 0 N Y 1 F N
 F0 "R" 80 0 50 V V C CNN
-F1 "FieldDevice-rescue:R" 0 0 50 V V C CNN
+F1 "R" 0 0 50 V V C CNN
 F2 "" -70 0 30 V V C CNN
 F3 "" 0 0 30 H V C CNN
 $FPLIST
@@ -232,11 +232,11 @@ X ~ 2 0 -150 50 U 60 60 1 1 P
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:SW_PUSH
+# SW_PUSH
 #
-DEF FieldDevice-rescue:SW_PUSH SW 0 40 N N 1 F N
+DEF SW_PUSH SW 0 40 N N 1 F N
 F0 "SW" 150 110 50 H V C CNN
-F1 "FieldDevice-rescue:SW_PUSH" 0 -80 50 H V C CNN
+F1 "SW_PUSH" 0 -80 50 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
@@ -247,11 +247,11 @@ X 2 2 300 0 200 L 60 60 0 1 P I
 ENDDRAW
 ENDDEF
 #
-# FieldDevice-rescue:THERMISTOR
+# THERMISTOR
 #
-DEF FieldDevice-rescue:THERMISTOR TH 0 0 N Y 1 F N
+DEF THERMISTOR TH 0 0 N Y 1 F N
 F0 "TH" 100 50 50 V V C CNN
-F1 "FieldDevice-rescue:THERMISTOR" -100 0 50 V V C BNN
+F1 "THERMISTOR" -100 0 50 V V C BNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
