@@ -20,7 +20,7 @@
 #define BATT_TEST _TEENSY_A6_GPIO_20
 
 
-#define ADC_5_V_CAPACITY (100.0 / 27.0)  // 0.0153670277
+#define ADC_5_V_CAPACITY (100.0 / 34.0)  // 0.0153670277
 #define ADC_6_VOLTAGE  (8.59 / 614.0) // 0.0074639423076923
 #define nss Serial
 
@@ -65,10 +65,10 @@ void setup()
   panic = false;
 
   double temperature = readTemp();
-  double capacity = readValue(VOLTAGE_SENSE, ADC_5_V_CAPACITY);
-  double batt_level = readValue(BATT_TEST, ADC_6_VOLTAGE);
+  double capacity = readLevel(VOLTAGE_SENSE, ADC_5_V_CAPACITY);
+  double batt_level = readVoltage(BATT_TEST, ADC_6_VOLTAGE);
   ClrDisplay();
-  updateDisplay( capacity, batt_level, temperature);
+  updateDisplay( "%2.1f%% %2.0f%cC", capacity, batt_level, temperature);
 
 
 }
@@ -215,21 +215,36 @@ double readTemp(){
  * Returns the voltage as sensed on vInPin and based 
  * on the estimated coeficient.
  */
-double readValue( uint8_t vInPin, double coef ) {
+double readVoltage( uint8_t vInPin, double coef ) {
   int sample_level = analogRead( vInPin );
   double value = (double)sample_level * coef;
   value = round(value * 10.0)/10.0;
 
-  sprintf(message, "Reading:%d, Value:%2.1f%%", sample_level, value);
+  sprintf(message, "Reading:%d, Voltage:%2.1fV", sample_level, value);
 
   nss.println(message);
   return value;
 }
 
-void updateDisplay(double voltage_level, double batt_level, double temperature) {
+/**
+ * Returns the voltage as sensed on vInPin and based 
+ * on the estimated coeficient.
+ */
+double readLevel( uint8_t vInPin, double coef ) {
+  int sample_level = analogRead( vInPin );
+  double value = (double)sample_level * coef;
+  value = round(value * 10.0)/10.0;
+
+  sprintf(message, "Reading:%d, Level:%2.1f%%", sample_level, value);
+
+  nss.println(message);
+  return value;
+}
+
+void updateDisplay(char* format, double voltage_level, double batt_level, double temperature) {
         // Only send the event every 10x3=30 seconds. No point in flooding the
         // airwaves.
-        sprintf(message, "%2.1f%% %2.0f%cC", voltage_level, temperature, 0xF2);
+        sprintf(message, format, voltage_level, temperature, 0xF2);
         // ClrDisplay();
         SetPosition( LINE2 );
         WriteString((uint8_t *) message );
@@ -254,39 +269,39 @@ void loop() {
   double batt_level;
   double temperature;
   temperature = readTemp();
-  capacity = readValue(VOLTAGE_SENSE, ADC_5_V_CAPACITY);
-  batt_level = readValue(BATT_TEST, ADC_6_VOLTAGE);
+  capacity = readLevel(VOLTAGE_SENSE, ADC_5_V_CAPACITY);
+  batt_level = readVoltage(BATT_TEST, ADC_6_VOLTAGE);
 
   received = receivePacket(payload);
   if ( received == true ) {
     // A request from Homebaset to send the current state.
     if( 0x44 == payload[0] ){
-      // updateDisplay( voltage_level, batt_level, temperature);
+      // updateDisplay( "%2.1f%% %2.0f%cC", capacity, batt_level, temperature);
       sendPacket(capacity,  batt_level, temperature );      
     }
   } else {
     // The measured voltages - System plus battery backup are verified to be
     // in the correct range. If lower than wanted, then send an event message
-    if ( (capacity < 11.0) || ( batt_level < 5.0 )) {
+    if ( (capacity < 40.0) || ( batt_level < 5.0 )) {
       panic = true;
       if((panic_count % 30) == 0) { // Every 5 minutes
         // Only send the event every 10x3=30 seconds. No point in flooding the
         // airwaves.
-        // updateDisplay( capacity, batt_level, temperature);
+        // updateDisplay( "%2.1f%% %2.0f%cC", capacity, batt_level, temperature);
         sendPacket(capacity,  batt_level, temperature );
       }
       panic_count++;
     } else{
       panic_count = 1;
       if( panic == true ){
-        // updateDisplay( capacity, batt_level, temperature);
+        // updateDisplay( "%2.1f%% %2.0f%cC", capacity, batt_level, temperature);
         sendPacket(capacity,  batt_level, temperature );
         panic = false;        
       }
     }
   }
-  updateDisplay( capacity, batt_level, temperature);    
-  delay(5000);  
+  updateDisplay( "%2.1f%% %2.0f%cC", capacity, batt_level, temperature);    
+  delay(5000); // 5 Secend rest  
   payload[0] = 0x00;
   
 
