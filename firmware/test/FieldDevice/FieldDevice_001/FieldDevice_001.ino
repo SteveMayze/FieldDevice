@@ -20,7 +20,7 @@
 #define BATT_TEST _TEENSY_A6_GPIO_20
 
 
-#define ADC_5_V_CAPACITY (100.0 / 34.0)  // 0.0153670277
+#define ADC_5_V_CAPACITY (100.0 / 58.0)  // 0.0153670277
 #define ADC_6_VOLTAGE  (8.59 / 614.0) // 0.0074639423076923
 #define nss Serial
 
@@ -232,7 +232,7 @@ double readVoltage( uint8_t vInPin, double coef ) {
  */
 double readLevel( uint8_t vInPin, double coef ) {
   int sample_level = analogRead( vInPin );
-  double value = (double)sample_level * coef;
+  double value = ((double)sample_level - 27.0) * coef;
   value = round(value * 10.0)/10.0;
 
   sprintf(message, "Reading:%d, Level:%2.1f%%", sample_level, value);
